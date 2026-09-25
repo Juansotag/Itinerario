@@ -21,6 +21,11 @@ if (!fs.existsSync(dataDir)) {
   fs.mkdirSync(dataDir, { recursive: true });
 }
 
+// 0. HEALTH CHECK (For Railway / Cloud Deployments)
+app.get('/health', (req, res) => {
+  res.status(200).send('OK');
+});
+
 // 1. PUBLIC CONFIG ENDPOINT (Google Maps Key)
 app.get('/api/config', (req, res) => {
   const gkey = process.env.GOOGLE_MAPS_API_KEY ? process.env.GOOGLE_MAPS_API_KEY.replace(/["']/g, '').trim() : '';
@@ -199,6 +204,6 @@ app.get('/api/replies', (req, res) => {
   res.json({ replies: [] });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Servidor de Nuestro Viaje activo en el puerto ${PORT}`);
 });
