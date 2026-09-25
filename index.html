@@ -92,20 +92,18 @@
     .material-symbols-outlined.fill {
       font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     }
-    .watermark-pattern {
-      background-image: radial-gradient(#9d3e1a 0.75px, transparent 0.75px);
-      background-size: 16px 16px;
-    }
-    .paper-texture {
-      background-color: #ffffff;
-      background-image: linear-gradient(180deg, rgba(253,249,243,0.6) 0%, rgba(247,243,237,0.8) 100%);
-    }
     .fade-enter {
       animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(6px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+    #google-map-view {
+      width: 100%;
+      height: 100%;
+      min-height: 380px;
+      border-radius: 1rem;
     }
   </style>
 </head>
@@ -115,9 +113,10 @@
   <header class="fixed top-0 w-full z-40 pt-safe bg-surface/90 backdrop-blur-xl border-b border-outline-variant/30 shadow-[0_4px_20px_-4px_rgba(135,29,45,0.05)]">
     <div class="h-16 px-4 max-w-lg mx-auto flex items-center justify-between">
       <div class="flex items-center gap-3 min-w-0">
-        <div class="relative w-9 h-9 rounded-full overflow-hidden shadow-[0_2px_8px_rgba(157,62,26,0.2)] bg-surface-container ring-1 ring-primary/20 flex-shrink-0">
+        <!-- Secret trigger: Click 3 times to open Secret Simulator for Juan -->
+        <button id="secret-seal-btn" title="Nuestro Viaje" class="relative w-9 h-9 rounded-full overflow-hidden shadow-[0_2px_8px_rgba(157,62,26,0.2)] bg-surface-container ring-1 ring-primary/20 flex-shrink-0 cursor-pointer active:scale-90 transition-transform">
           <img src="assets/sello_romantico.png" alt="Sello Nuestro Viaje" class="w-full h-full object-cover"/>
-        </div>
+        </button>
         <div class="flex flex-col min-w-0">
           <span class="font-serif font-semibold text-lg text-primary tracking-tight leading-tight truncate">Nuestro Viaje</span>
           <span class="text-[11px] font-medium text-on-surface-variant uppercase tracking-wider truncate">Barranquilla — Sep 2026</span>
@@ -127,7 +126,8 @@
         <button id="open-map-btn" aria-label="Abrir mapa de la ruta secreta" class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-low hover:bg-surface-container text-primary transition-all active:scale-95 shadow-sm">
           <span class="material-symbols-outlined text-[20px]">map</span>
         </button>
-        <button id="open-sim-btn" aria-label="Ajustes y simulador de tiempo" class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-low hover:bg-surface-container text-on-surface-variant transition-all active:scale-95 shadow-sm">
+        <!-- Protected simulator button with subtle lock icon -->
+        <button id="open-sim-btn" aria-label="Ajustes de Juan" class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-low hover:bg-surface-container text-on-surface-variant transition-all active:scale-95 shadow-sm">
           <span class="material-symbols-outlined text-[20px]">tune</span>
         </button>
       </div>
@@ -148,15 +148,6 @@
 
       <!-- The Parchment Sheet -->
       <article id="parchment-letter" class="w-full bg-surface-container-lowest rounded-2xl shadow-parchment px-5 pt-11 pb-6 relative overflow-hidden transition-all duration-500 border border-outline-variant/30">
-        <!-- SVG Watermark Accent -->
-        <div class="absolute -right-10 -top-10 opacity-5 pointer-events-none text-primary">
-          <svg class="w-48 h-48" fill="currentColor" viewBox="0 0 200 200">
-            <circle cx="100" cy="100" fill="none" r="80" stroke="currentColor" stroke-dasharray="4 6" stroke-width="1.5"></circle>
-            <path d="M100 20 L100 180 M20 100 L180 100 M43.43 43.43 L156.57 156.57 M43.43 156.57 L156.57 43.43" stroke="currentColor" stroke-dasharray="2 4" stroke-width="1"></path>
-            <circle cx="100" cy="100" fill="none" r="30" stroke="currentColor" stroke-width="1"></circle>
-          </svg>
-        </div>
-
         <div class="flex items-center justify-between w-full mb-3 text-primary">
           <div class="flex items-center gap-1.5">
             <span class="material-symbols-outlined text-[18px]">explore</span>
@@ -236,7 +227,7 @@
         <div class="flex items-center justify-between gap-2">
           <span class="text-[11px] text-on-surface-variant flex items-center gap-1">
             <span class="material-symbols-outlined text-[14px] text-tertiary">lock</span>
-            Solo visible para los dos
+            Llega directo a Juan
           </span>
           <button id="send-reply-btn" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-primary hover:bg-primary-container text-on-primary text-xs font-semibold shadow-sm transition-all active:scale-95">
             <span>Guardar mi respuesta</span>
@@ -246,14 +237,13 @@
 
         <div id="reply-toast" class="hidden mt-3 p-2.5 rounded-xl bg-surface-container flex items-center gap-2 border border-outline-variant/30">
           <span class="material-symbols-outlined text-primary text-[18px] fill">check_circle</span>
-          <span class="text-xs text-on-surface font-medium">Respuesta sellada con amor en el diario de viaje.</span>
+          <span class="text-xs text-on-surface font-medium">Respuesta sellada con amor y guardada para Juan.</span>
         </div>
       </div>
     </section>
 
     <!-- TAB 2: ITINERARIO (LINEA DE TIEMPO) -->
     <section id="view-itinerario" class="tab-view hidden flex-col gap-4 fade-enter">
-      <!-- Section Title & Status Strip -->
       <div class="flex flex-col gap-1">
         <div class="flex items-center justify-between">
           <span id="itinerary-status-badge" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed text-[11px] font-bold uppercase tracking-wider">
@@ -291,13 +281,12 @@
 
       <!-- Timeline Feed Container -->
       <div id="timeline-container" class="flex flex-col gap-4 relative mt-1">
-        <!-- Day cards will be rendered dynamically by JavaScript -->
+        <!-- Rendered dynamically -->
       </div>
     </section>
 
-    <!-- TAB 3: PREGUNTAS (EL ORACULO DEL VIAJE) -->
+    <!-- TAB 3: PREGUNTAS (EL ORACULO INTELIGENTE) -->
     <section id="view-preguntas" class="tab-view hidden flex-col gap-4 fade-enter">
-      <!-- Oracle Banner -->
       <div class="w-full bg-surface-container-low rounded-2xl p-4 shadow-sm relative overflow-hidden border border-outline-variant/30">
         <div class="flex items-center gap-3">
           <div class="w-11 h-11 rounded-full overflow-hidden shadow-sm flex-shrink-0 bg-surface-container ring-1 ring-primary/20">
@@ -306,13 +295,13 @@
           <div class="flex flex-col min-w-0">
             <div class="flex items-center gap-1.5">
               <h2 class="font-serif font-bold text-base text-primary tracking-tight">El Oráculo del Viaje</h2>
-              <span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant text-[10px] font-semibold">En línea</span>
+              <span id="oracle-source-badge" class="px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant text-[10px] font-semibold">Inteligente</span>
             </div>
             <p class="text-xs text-on-surface-variant">Guardián cómplice de los secretos de Juan</p>
           </div>
         </div>
         <p class="text-xs text-on-surface-variant/90 bg-surface-container-lowest/80 rounded-xl p-2.5 mt-2.5 leading-relaxed">
-          Hazme preguntas sobre qué empacar, el clima o qué esperar en Barranquilla... responderé con pistas y cariño, pero sin arruinarte la sorpresa completa.
+          Hazme preguntas sobre qué empacar, el clima o qué esperar en Barranquilla... responderé con pistas cariñosas sin arruinarte la sorpresa completa.
         </p>
       </div>
 
@@ -352,7 +341,7 @@
               <span class="text-[10px] font-bold text-tertiary uppercase tracking-wider">Guardián de Secretos</span>
             </div>
             <p class="text-xs leading-relaxed">
-              ¡Hola Mariajo! Conozco cada rincón, cada reserva y cada suspiro planeado para este viaje. Hazme cualquier pregunta y te daré pistas en verso para que hagas tu maleta perfecta.
+              ¡Hola Mariajo! Conozco cada rincón, cada reserva y cada momento planeado para este viaje. Pregúntame lo que quieras saber sobre cómo prepararte o qué esperar.
             </p>
           </div>
         </div>
@@ -392,7 +381,7 @@
     </div>
   </nav>
 
-  <!-- MODAL: RUTA SECRETA (MAPA VECTORIAL ILUSTRADO) -->
+  <!-- MODAL: RUTA SECRETA (MAPA VECTORIAL & GOOGLE MAPS) -->
   <div id="map-modal" class="fixed inset-0 z-50 flex flex-col bg-surface overflow-hidden hidden">
     <!-- Map Header -->
     <header class="h-16 px-4 flex items-center justify-between border-b border-outline-variant/30 bg-surface/90 backdrop-blur-md">
@@ -405,14 +394,20 @@
           <span class="text-[11px] text-on-surface-variant">Barranquilla &amp; El Caribe</span>
         </div>
       </div>
-      <div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container shadow-sm">
-        <img src="assets/sello_romantico.png" alt="Sello" class="w-full h-full object-cover"/>
+      <!-- Mode Switcher: Editorial Map vs Google Maps -->
+      <div class="flex items-center gap-1 bg-surface-container p-1 rounded-xl border border-outline-variant/30 text-xs">
+        <button id="show-art-map-btn" class="px-2.5 py-1 rounded-lg font-bold bg-primary text-on-primary shadow-sm transition-all">Editorial</button>
+        <button id="show-google-map-btn" class="px-2.5 py-1 rounded-lg font-medium text-on-surface-variant hover:text-on-surface transition-all flex items-center gap-1">
+          <span>Google</span>
+        </button>
       </div>
     </header>
 
-    <!-- Map Canvas & Pins -->
+    <!-- Map Canvas Container -->
     <div class="flex-1 w-full max-w-lg mx-auto p-4 flex flex-col gap-3 overflow-y-auto">
-      <div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-surface-container-low shadow-lg border border-outline-variant/30 select-none">
+      
+      <!-- 1. EDITORIAL ARTISANAL MAP -->
+      <div id="art-map-container" class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-surface-container-low shadow-lg border border-outline-variant/30 select-none">
         <svg class="absolute inset-0 w-full h-full pointer-events-none" fill="none" viewBox="0 0 400 500" preserveAspectRatio="none">
           <defs>
             <radialGradient cx="50%" cy="50%" id="sandGradient" r="50%">
@@ -446,7 +441,7 @@
         </div>
         <div class="absolute bottom-16 right-4 pointer-events-none opacity-55 text-right">
           <span class="font-serif italic text-xs text-on-surface-variant font-bold block">Río Magdalena</span>
-          <span class="text-[9px] font-semibold text-outline tracking-wider uppercase">Boca de Ceniza</span>
+          <span class="text-[9px] font-semibold text-outline tracking-wider uppercase">Bocas de Ceniza</span>
         </div>
 
         <!-- Marker 1: Aeropuerto Ernesto Cortissoz -->
@@ -500,8 +495,17 @@
         </button>
       </div>
 
+      <!-- 2. GOOGLE MAPS LIVE INTERACTIVE VIEW -->
+      <div id="google-map-container" class="w-full aspect-[4/5] rounded-2xl overflow-hidden bg-surface-container shadow-lg border border-outline-variant/30 hidden relative">
+        <div id="google-map-view"></div>
+        <div id="google-map-loading" class="absolute inset-0 flex flex-col items-center justify-center bg-surface-container p-4 text-center">
+          <span class="material-symbols-outlined text-primary text-[32px] animate-spin">refresh</span>
+          <span class="text-xs text-on-surface-variant font-medium mt-2">Cargando mapa en vivo de Barranquilla...</span>
+        </div>
+      </div>
+
       <!-- Map Detail Preview Card -->
-      <div id="map-preview-card" class="bg-surface-container rounded-2xl p-4 shadow-sm border border-outline-variant/30 flex flex-col gap-2">
+      <div id="map-preview-card" class="bg-surface-container rounded-2xl p-4 shadow-sm border border-outline-variant/30 flex flex-col gap-2.5">
         <div class="flex items-start justify-between">
           <div class="flex items-center gap-2">
             <div id="map-preview-icon" class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center text-xs font-bold">
@@ -517,11 +521,18 @@
         <p id="map-preview-desc" class="text-xs text-on-surface-variant leading-relaxed">
           Paseo en scooters eléctricas por la orilla del río Magdalena, brisa fresca y almuerzo frente a la corriente dorada.
         </p>
+        <div class="flex items-center justify-between pt-1 border-t border-outline-variant/20">
+          <span class="text-[10px] text-on-surface-variant" id="map-preview-address">Vía 40 con Calle 78, Barranquilla</span>
+          <a id="map-preview-link" href="https://www.google.com/maps/search/?api=1&query=Caiman+del+Rio+Gran+Malecon+Barranquilla" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-3 py-1 rounded-xl bg-primary text-on-primary text-xs font-bold shadow-sm active:scale-95 transition-transform">
+            <span>Abrir en Google Maps</span>
+            <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+          </a>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- MODAL / BOTTOM SHEET: SIMULADOR DE TIEMPO & MODO DIOS -->
+  <!-- MODAL / BOTTOM SHEET: SIMULADOR DE TIEMPO & MODO DIOS (PROTEGIDO) -->
   <div id="sim-modal" class="fixed inset-0 z-50 flex flex-col justify-end bg-inverse-surface/60 backdrop-blur-sm transition-opacity duration-300 hidden">
     <div id="sim-backdrop" class="flex-1 w-full"></div>
     <div class="w-full max-w-lg mx-auto bg-surface-container-low rounded-t-[2rem] shadow-2xl p-5 flex flex-col gap-4 border-t border-outline-variant/30 max-h-[85vh] overflow-y-auto">
@@ -530,7 +541,7 @@
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2">
           <span class="material-symbols-outlined text-primary text-[20px]">tune</span>
-          <h3 class="font-serif font-bold text-lg text-on-surface">Simulador del Viaje</h3>
+          <h3 class="font-serif font-bold text-lg text-on-surface">Simulador del Viaje (Modo Juan)</h3>
         </div>
         <button id="close-sim-btn" aria-label="Cerrar simulador" class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface">
           <span class="material-symbols-outlined text-[18px]">close</span>
@@ -538,8 +549,23 @@
       </div>
 
       <p class="text-xs text-on-surface-variant -mt-2">
-        Ajusta el día y la hora simulada para verificar cómo se desbloquean las sorpresas o activa el Modo Revelación Inmediata.
+        Ajusta el día y la hora simulada para verificar cómo se desbloquean las sorpresas o sincroniza con la hora real.
       </p>
+
+      <!-- Real-time vs Manual status banner -->
+      <div id="sim-mode-banner" class="p-3 rounded-xl bg-surface-container-lowest flex items-center justify-between border border-outline-variant/30 text-xs shadow-sm">
+        <div class="flex items-center gap-2">
+          <span id="sim-mode-dot" class="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse"></span>
+          <div class="flex flex-col">
+            <span id="sim-mode-title" class="font-bold text-on-surface">Hora Actual (En vivo)</span>
+            <span id="sim-mode-subtitle" class="text-[10px] text-on-surface-variant">Sincronizado con el reloj del teléfono</span>
+          </div>
+        </div>
+        <button id="reset-real-time-btn" class="hidden px-2.5 py-1 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-bold text-[11px] border border-primary/20 flex items-center gap-1 active:scale-95 transition-all">
+          <span class="material-symbols-outlined text-[14px]">sync</span>
+          <span>Volver a hora real</span>
+        </button>
+      </div>
 
       <!-- God Mode Toggle -->
       <div class="bg-surface-container-lowest rounded-xl p-3.5 flex items-center justify-between border border-outline-variant/30 shadow-sm">
@@ -633,9 +659,112 @@
         <p id="modal-event-note" class="font-serif italic text-xs text-on-secondary-fixed leading-relaxed"></p>
       </div>
 
-      <button id="close-event-modal-cta" class="w-full py-2.5 rounded-xl bg-primary text-on-primary text-xs font-bold shadow-sm active:scale-95 transition-all mt-1">
-        Entendido
-      </button>
+      <!-- Google Maps button in Event Modal -->
+      <a id="modal-event-gmaps-btn" href="#" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 rounded-xl bg-primary text-on-primary text-xs font-bold shadow-sm active:scale-95 transition-all mt-1 flex items-center justify-center gap-1.5">
+        <span>Abrir ubicación en Google Maps</span>
+        <span class="material-symbols-outlined text-[16px]">location_on</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- MODAL: TIQUETES TREN PUERTO MOCHO (QR CODES) -->
+  <div id="tickets-modal" class="fixed inset-0 z-50 flex flex-col justify-end bg-inverse-surface/65 backdrop-blur-sm hidden">
+    <div id="tickets-modal-backdrop" class="flex-1 w-full"></div>
+    <div class="w-full max-w-lg mx-auto bg-surface-container-low rounded-t-[2rem] shadow-2xl p-5 flex flex-col gap-4 max-h-[90vh] overflow-y-auto border-t border-outline-variant/30">
+      <div class="w-12 h-1 rounded-full bg-outline-variant/60 mx-auto -mt-1 mb-1"></div>
+      
+      <div class="flex items-start justify-between">
+        <div class="flex flex-col">
+          <span class="text-[10px] font-bold text-primary uppercase tracking-widest">Edubar S.A. &bull; Alcaldía de Barranquilla</span>
+          <h3 class="font-serif font-bold text-xl text-on-surface leading-tight">Tiquetes Tren de Puerto Mocho</h3>
+          <span class="text-xs text-on-surface-variant">Sábado 26 de septiembre de 2026</span>
+        </div>
+        <button id="close-tickets-modal-btn" aria-label="Cerrar tiquetes" class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface">
+          <span class="material-symbols-outlined text-[18px]">close</span>
+        </button>
+      </div>
+
+      <!-- Selector between Mariajo and Juan tickets -->
+      <div class="grid grid-cols-2 gap-2 bg-surface-container p-1 rounded-xl border border-outline-variant/30">
+        <button id="tab-ticket-mariajo" class="ticket-tab-btn active py-2 rounded-lg text-xs font-bold bg-primary text-on-primary shadow-sm transition-all">
+          Tiquete Mariajo
+        </button>
+        <button id="tab-ticket-juan" class="ticket-tab-btn py-2 rounded-lg text-xs font-bold text-on-surface-variant hover:text-on-surface transition-all">
+          Tiquete Juan
+        </button>
+      </div>
+
+      <!-- Mariajo Ticket Content -->
+      <div id="ticket-content-mariajo" class="ticket-card flex flex-col items-center gap-3 bg-surface-container-lowest p-4 rounded-2xl border border-outline-variant/30 shadow-sm">
+        <div class="flex items-center justify-between w-full border-b border-outline-variant/20 pb-2">
+          <div>
+            <span class="text-[10px] font-semibold text-on-surface-variant uppercase tracking-wider block">Pasajera / Invitada de Honor</span>
+            <span class="font-serif font-bold text-sm text-primary">María José Álvarez Fandiño</span>
+          </div>
+          <span class="text-[11px] font-mono font-bold bg-secondary-fixed text-on-secondary-fixed px-2 py-0.5 rounded-full"># 630458cs19ma-2</span>
+        </div>
+
+        <div class="p-3 bg-white rounded-xl shadow-inner border border-outline-variant/30 flex flex-col items-center">
+          <img src="assets/qr_tren_mariajo.png" alt="QR Tiquete Mariajo" class="w-52 h-52 object-contain"/>
+          <span class="text-[10px] font-mono text-outline mt-1.5 font-semibold">Código QR para abordar en Las Flores</span>
+        </div>
+
+        <div class="w-full grid grid-cols-2 gap-2 text-[11px] bg-surface-container-low p-2.5 rounded-xl border border-outline-variant/20">
+          <div>
+            <span class="text-on-surface-variant block">Ruta:</span>
+            <strong class="text-on-surface">Las Flores &harr; Puerto Mocho</strong>
+          </div>
+          <div>
+            <span class="text-on-surface-variant block">Tarifa:</span>
+            <strong class="text-on-surface">$ 10.000 COP (Ida y vuelta)</strong>
+          </div>
+        </div>
+
+        <a href="assets/tiquete_completo_mariajo.png" target="_blank" class="w-full py-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-xs font-semibold text-center text-primary flex items-center justify-center gap-1.5 transition-colors">
+          <span>Ver tiquete oficial completo</span>
+          <span class="material-symbols-outlined text-[15px]">open_in_new</span>
+        </a>
+      </div>
+
+      <!-- Juan Ticket Content -->
+      <div id="ticket-content-juan" class="ticket-card hidden flex flex-col items-center gap-3 bg-surface-container-lowest p-4 rounded-2xl border border-outline-variant/30 shadow-sm">
+        <div class="flex items-center justify-between w-full border-b border-outline-variant/20 pb-2">
+          <div>
+            <span class="text-[10px] font-semibold text-on-surface-variant uppercase tracking-wider block">Pasajero</span>
+            <span class="font-serif font-bold text-sm text-primary">Juan Sotelo Aguilar</span>
+          </div>
+          <span class="text-[11px] font-mono font-bold bg-secondary-fixed text-on-secondary-fixed px-2 py-0.5 rounded-full"># 630458cs19ma-1</span>
+        </div>
+
+        <div class="p-3 bg-white rounded-xl shadow-inner border border-outline-variant/30 flex flex-col items-center">
+          <img src="assets/qr_tren_juan.png" alt="QR Tiquete Juan" class="w-52 h-52 object-contain"/>
+          <span class="text-[10px] font-mono text-outline mt-1.5 font-semibold">Código QR para abordar en Las Flores</span>
+        </div>
+
+        <div class="w-full grid grid-cols-2 gap-2 text-[11px] bg-surface-container-low p-2.5 rounded-xl border border-outline-variant/20">
+          <div>
+            <span class="text-on-surface-variant block">Ruta:</span>
+            <strong class="text-on-surface">Las Flores &harr; Puerto Mocho</strong>
+          </div>
+          <div>
+            <span class="text-on-surface-variant block">Tarifa:</span>
+            <strong class="text-on-surface">$ 10.000 COP (Ida y vuelta)</strong>
+          </div>
+        </div>
+
+        <a href="assets/tiquete_completo_juan.png" target="_blank" class="w-full py-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-xs font-semibold text-center text-primary flex items-center justify-center gap-1.5 transition-colors">
+          <span>Ver tiquete oficial completo</span>
+          <span class="material-symbols-outlined text-[15px]">open_in_new</span>
+        </a>
+      </div>
+
+      <!-- Station and boarding notice -->
+      <div class="p-3 rounded-xl bg-surface-container border border-outline-variant/20 flex items-start gap-2">
+        <span class="material-symbols-outlined text-primary text-[18px] flex-shrink-0 mt-0.5">info</span>
+        <p class="text-[11px] text-on-surface-variant leading-relaxed">
+          Estación Las Flores: Calle 106 #90-451, Riomar. Presenta estos códigos QR en los lectores de la estación al momento de subir al tren turístico.
+        </p>
+      </div>
     </div>
   </div>
 
@@ -646,12 +775,18 @@
       const state = {
         activeTab: 'view-para-ti',
         activeDay: 'dia1',
+        activeDayManual: false,
         simDay: 'vie',
-        simMinutes: 1020, // 17:00
-        godMode: false
+        simMinutes: 1020, // Initial default
+        isManualTime: false,
+        godMode: false,
+        googleMapsLoaded: false,
+        googleMapInstance: null,
+        activeMapMode: 'art', // 'art' or 'google'
+        chatHistory: []
       };
 
-      // 2. ITINERARIO DATABASE (Faithful to itinerario_mariajo_1.md)
+      // 2. ITINERARIO DATABASE WITH GOOGLE MAPS SEARCH QUERIES & REAL COORDINATES
       const ITINERARY_DATA = {
         dia1: {
           dayTitle: 'Viernes 25 de septiembre',
@@ -663,55 +798,63 @@
               minutes: 1005,
               title: 'Llegada a Barranquilla &amp; Bienvenida',
               location: 'Aeropuerto Ernesto Cortissoz (BAQ)',
-              mood: 'Bienvenida &amp; Sorpresa',
+              mood: 'Bienvenida &amp; Reencuentro',
               tag: 'Vuelo LA4162',
               desc: 'Tu vuelo aterriza en Barranquilla a las 16:45. En la sala de llegadas te estaré esperando con la sonrisa más grande y un abrazo enorme para dar inicio a nuestro fin de semana.',
               note: 'Todo listo para recibirte con los brazos abiertos y arrancar nuestra aventura.',
               image: 'assets/sello_romantico.png',
               isSecret: false,
-              mysteryRiddle: ''
+              mysteryRiddle: '',
+              gmaps: 'https://www.google.com/maps/search/?api=1&query=Aeropuerto+Internacional+Ernesto+Cortissoz+Barranquilla',
+              coords: { lat: 10.8896, lng: -74.7808 }
             },
             {
               id: 'v2',
               time: '18:00',
               minutes: 1080,
               title: 'Llegada al Hotel Ibis Budget',
-              location: 'Hotel Ibis Budget Barranquilla',
+              location: 'Hotel Ibis Budget Barranquilla (Cra 50 #84-82)',
               mood: 'Descanso &amp; Alistamiento',
               tag: 'Hospedaje',
               desc: 'Check-in y llegada a nuestra habitación. Tiempo ideal para desempacar con calma, refrescarse del viaje y ponerse ropa linda para la noche.',
               note: 'Ropa fresca y cómoda para salir a cenar cerquita del hotel.',
               image: null,
               isSecret: false,
-              mysteryRiddle: ''
+              mysteryRiddle: '',
+              gmaps: 'https://www.google.com/maps/search/?api=1&query=Hotel+ibis+budget+Barranquilla',
+              coords: { lat: 11.0048, lng: -74.8213 }
             },
             {
               id: 'v3',
               time: '19:00',
               minutes: 1140,
               title: 'Cena Fusión en Máncora',
-              location: 'Restaurante Máncora',
+              location: 'Restaurante Máncora (Calle 84 #50-10)',
               mood: 'Sabores &amp; Recuerdos de Lima',
               tag: 'Mesa reservada',
               desc: 'Una velada íntima de cocina fusión peruana en Máncora. Este lugar fue elegido pensando especialmente en ti: en tus años de universidad en Lima y en tu amor absoluto por los mariscos frescos.',
               note: 'Un brindis dedicado a tus recuerdos en Perú y a este reencuentro nuestro.',
-              image: 'assets/cena_mancora.png',
+              image: 'assets/cena_mancora_real.jpg',
               isSecret: true,
-              mysteryRiddle: 'Un guiño a la ciudad del Pacífico donde estudiaste y a los sabores marinos que hacen bailar tu corazón.'
+              mysteryRiddle: 'Un guiño a la ciudad del Pacífico donde estudiaste y a los sabores marinos que hacen bailar tu corazón.',
+              gmaps: 'https://www.google.com/maps/search/?api=1&query=Restaurante+Mancora+Calle+84+Barranquilla',
+              coords: { lat: 11.0041, lng: -74.8177 }
             },
             {
               id: 'v4',
               time: '21:30',
               minutes: 1290,
               title: 'Tragos &amp; Conversación bajo la brisa',
-              location: 'Bar cerca del hotel',
+              location: 'Bar cerca del hotel (Sector Riomar)',
               mood: 'Tranquilidad &amp; Risas',
               tag: 'Brisa caribeña',
               desc: 'Una copa tranquila para conversar sin mirar el reloj, ponernos al día mirándonos a los ojos y disfrutar la primera brisa de Barranquilla.',
               note: 'Sin afanes, solo nosotros dos celebrando el fin de semana.',
               image: null,
               isSecret: true,
-              mysteryRiddle: 'Copas suaves y palabras cómplices para despedir el viernes sin afanes.'
+              mysteryRiddle: 'Copas suaves y palabras cómplices para despedir el viernes sin afanes.',
+              gmaps: 'https://www.google.com/maps/search/?api=1&query=Carrera+50+con+Calle+84+Barranquilla',
+              coords: { lat: 11.0045, lng: -74.8195 }
             }
           ]
         },
@@ -731,21 +874,26 @@
               note: 'Carga bien tu teléfono para las fotos que vienen hoy.',
               image: null,
               isSecret: false,
-              mysteryRiddle: ''
+              mysteryRiddle: '',
+              gmaps: 'https://www.google.com/maps/search/?api=1&query=Hotel+ibis+budget+Barranquilla',
+              coords: { lat: 11.0048, lng: -74.8213 }
             },
             {
               id: 's2',
               time: '09:00',
               minutes: 540,
               title: 'Tren a la Playa de Puerto Mocho',
-              location: 'Estación Bocas de Ceniza / Cl. 106 #90-451',
+              location: 'Estación Bocas de Ceniza / Cl. 106 #90-451, Las Flores',
               mood: 'Tren &amp; Mar Caribe',
               tag: 'Aventura costera',
               desc: 'Salida en taxi hacia la estación del nuevo tren turístico. Recorrido panorámico sobre los rieles entre el río y el mar hasta llegar a la playa de Puerto Mocho. Carpa frente al mar, bebidas frías y brisa marina.',
               note: 'Lleva traje de baño, gafas de sol y sandalias cómodas.',
-              image: 'assets/tren_puerto_mocho.jpg',
+              image: 'assets/tren_real.jpg',
+              hasTickets: true,
               isSecret: true,
-              mysteryRiddle: 'Sobre rieles antiguos donde el río más grande abraza al mar... arena, brisa y sombra caribeña.'
+              mysteryRiddle: 'Sobre rieles antiguos donde el río más grande abraza al mar... arena, brisa y sombra caribeña.',
+              gmaps: 'https://www.google.com/maps/search/?api=1&query=Estacion+Tren+Turistico+Las+Flores+Barranquilla',
+              coords: { lat: 11.0422, lng: -74.8315 }
             },
             {
               id: 's3',
@@ -757,23 +905,27 @@
               tag: 'Scooters eléctricas',
               desc: 'Regreso en tren y llegada al Malecón del Río. Alquiler de scooters eléctricas para recorrer la orilla del Magdalena, disfrutar la brisa y almorzar en el Caimán del Río.',
               note: 'Paseo en dos ruedas a orillas del río más importante del país.',
-              image: 'assets/malecon_atardecer.png',
+              image: 'assets/malecon_real.jpg',
               isSecret: true,
-              mysteryRiddle: 'El sol sobre el agua y ruedas ligeras deslizándose junto a la corriente más grande de Colombia.'
+              mysteryRiddle: 'El sol sobre el agua y ruedas ligeras deslizándose junto a la corriente más grande de Colombia.',
+              gmaps: 'https://www.google.com/maps/search/?api=1&query=Caiman+del+Rio+Gran+Malecon+Barranquilla',
+              coords: { lat: 11.0185, lng: -74.7950 }
             },
             {
               id: 's4',
               time: '15:00',
               minutes: 900,
               title: 'Villa Country — La Casa de tu Papá',
-              location: 'Barrio Villa Country',
+              location: 'Barrio Villa Country (Cra 53 con Cll 78)',
               mood: 'Memoria &amp; Homenaje familiar',
               tag: 'Momento del corazón',
               desc: 'Caminata tranquila de 30 minutos hacia el tradicional barrio Villa Country. Visitaremos la casa donde creció tu papá cuando era niño, un tributo lleno de amor a su memoria y a las raíces de tu familia.',
               note: 'Haremos una parada al lado para tomar algo refrescante mientras compartimos recuerdos.',
-              image: 'assets/villa_country.jpg',
+              image: 'assets/villa_country_real.jpg',
               isSecret: true,
-              mysteryRiddle: 'Calles arboladas que guardan los primeros pasos y la infancia de la persona que más admiras.'
+              mysteryRiddle: 'Calles arboladas que guardan los primeros pasos y la infancia de la persona que más admiras.',
+              gmaps: 'https://www.google.com/maps/search/?api=1&query=Villa+Country+Barranquilla',
+              coords: { lat: 11.0028, lng: -74.8105 }
             },
             {
               id: 's5',
@@ -787,7 +939,9 @@
               note: 'Tiempo para descansar plácidamente juntos.',
               image: null,
               isSecret: false,
-              mysteryRiddle: ''
+              mysteryRiddle: '',
+              gmaps: 'https://www.google.com/maps/search/?api=1&query=Hotel+ibis+budget+Barranquilla',
+              coords: { lat: 11.0048, lng: -74.8213 }
             }
           ]
         },
@@ -807,7 +961,9 @@
               note: 'Revisar no olvidar nada en la habitación.',
               image: null,
               isSecret: false,
-              mysteryRiddle: ''
+              mysteryRiddle: '',
+              gmaps: 'https://www.google.com/maps/search/?api=1&query=Hotel+ibis+budget+Barranquilla',
+              coords: { lat: 11.0048, lng: -74.8213 }
             },
             {
               id: 'd2',
@@ -821,7 +977,9 @@
               note: 'Te acompaño hasta el filtro de seguridad con un beso para el viaje.',
               image: null,
               isSecret: false,
-              mysteryRiddle: ''
+              mysteryRiddle: '',
+              gmaps: 'https://www.google.com/maps/search/?api=1&query=Aeropuerto+Internacional+Ernesto+Cortissoz+Barranquilla',
+              coords: { lat: 10.8896, lng: -74.7808 }
             },
             {
               id: 'd3',
@@ -835,80 +993,69 @@
               note: 'El mejor final: cerrar el viaje exactamente como empezó, juntos.',
               image: 'assets/sello_romantico.png',
               isSecret: true,
-              mysteryRiddle: 'Tú llegas primero, yo llego después... y al final de la tarde, el mismo camino de regreso.'
+              mysteryRiddle: 'Tú llegas primero, yo llego después... y al final de la tarde, el mismo camino de regreso.',
+              gmaps: 'https://www.google.com/maps/search/?api=1&query=Aeropuerto+El+Dorado+Bogota',
+              coords: { lat: 4.7016, lng: -74.1469 }
             }
           ]
         }
       };
 
-      // 3. MAP DATA
+      // 3. MAP DATA POINTS WITH ADDRESSES & DIRECT LINKS
       const MAP_POINTS = {
         aeropuerto: {
           title: 'Aeropuerto Ernesto Cortissoz (BAQ)',
           tag: 'Punto de Llegada y Salida',
           time: 'Viernes 16:45 &amp; Domingo 11:30',
           desc: 'Donde inicia la magia al verte llegar a la sala de espera, y donde cerramos la primera etapa del viaje.',
-          icon: 'flight_land'
+          address: 'Calle 30, Soledad, Atlántico',
+          icon: 'flight_land',
+          coords: { lat: 10.8896, lng: -74.7808 },
+          gmaps: 'https://www.google.com/maps/search/?api=1&query=Aeropuerto+Internacional+Ernesto+Cortissoz+Barranquilla'
         },
         hotel: {
           title: 'Hotel Ibis Budget &amp; Máncora',
           tag: 'Hospedaje &amp; Cena Especial',
           time: 'Viernes 19:00',
           desc: 'Nuestra base de descanso y la mesa reservada en Máncora para disfrutar de la mejor fusión peruana en honor a Lima.',
-          icon: 'restaurant'
+          address: 'Cra 50 #84-82 & Calle 84 #50-10, Riomar',
+          icon: 'restaurant',
+          coords: { lat: 11.0048, lng: -74.8213 },
+          gmaps: 'https://www.google.com/maps/search/?api=1&query=Restaurante+Mancora+Calle+84+Barranquilla'
         },
         malecon: {
           title: 'Gran Malecón del Río Magdalena',
           tag: 'Paseo en Scooters',
           time: 'Sábado 13:00',
           desc: 'Caminata y paseo en scooters eléctricas frente a la corriente dorada del río más grande de Colombia.',
-          icon: 'wb_sunny'
+          address: 'Vía 40 con Calle 78 (Caimán del Río)',
+          icon: 'wb_sunny',
+          coords: { lat: 11.0185, lng: -74.7950 },
+          gmaps: 'https://www.google.com/maps/search/?api=1&query=Caiman+del+Rio+Gran+Malecon+Barranquilla'
         },
         villacountry: {
           title: 'Barrio Villa Country',
           tag: 'Tributo Familiar',
           time: 'Sábado 15:00',
           desc: 'Recorrido nostálgico y sentido por la casa donde creció tu papá, rodeada de almendros y memoria.',
-          icon: 'cottage'
+          address: 'Sector Carrera 53 con Calle 78, Villa Country',
+          icon: 'cottage',
+          coords: { lat: 11.0028, lng: -74.8105 },
+          gmaps: 'https://www.google.com/maps/search/?api=1&query=Villa+Country+Barranquilla'
         },
         puertomocho: {
           title: 'Playa de Puerto Mocho &amp; Tren',
           tag: 'Aventura Costera',
           time: 'Sábado 09:00',
           desc: 'Nuevo tren turístico hacia la playa de Puerto Mocho y Bocas de Ceniza, carpa y brisa del Caribe.',
-          icon: 'train'
+          address: 'Cl. 106 #90-451, Las Flores / Tajamar',
+          icon: 'train',
+          coords: { lat: 11.0422, lng: -74.8315 },
+          gmaps: 'https://www.google.com/maps/search/?api=1&query=Estacion+Tren+Turistico+Las+Flores+Barranquilla'
         }
       };
 
-      // 4. ORACLE RESPONSES DATABASE
-      const ORACLE_KNOWLEDGE = [
-        {
-          triggers: ['calzado', 'zapatos', 'tenis', 'tacones', 'sandalias'],
-          reply: 'Para el día de sol y tren, empaca sandalias cómodas y calzado ligero. Para la tarde del sábado caminaremos un poco, así que unos tenis frescos serán tus mejores aliados. Para las noches, algo lindo pero cómodo: en Barranquilla la brisa premia la frescura.'
-        },
-        {
-          triggers: ['mar', 'playa', 'rio', 'agua', 'piscina', 'vestido de baño', 'bañador'],
-          reply: 'Sí, viajera curiosa: el agua será protagonista. No solo veremos el imponente río Magdalena bailar con la brisa, sino que unos rieles nos llevarán a donde el mar caribe toca la orilla. Empaca tu traje de baño favorito y gafas de sol.'
-        },
-        {
-          triggers: ['viernes', 'noche', 'primera noche', 'cena', 'mancora', 'llegada'],
-          reply: 'Para el viernes por la noche, Juan ha pensado en un lugar especial con aromas y sabores que te traerán recuerdos de una ciudad costera del sur donde viviste una gran etapa. Un vestido fresco y bonito será perfecto.'
-        },
-        {
-          triggers: ['familiar', 'papa', 'padre', 'nostalgia', 'villa country', 'recuerdo'],
-          reply: 'El sábado en la tarde habrá una parada que tocará hondo las fibras de tu corazón. Un paseo bajo la sombra de árboles tradicionales hacia las raíces y la infancia de alguien que amas profundamente.'
-        },
-        {
-          triggers: ['clima', 'calor', 'sol', 'temperatura', 'frio'],
-          reply: 'En Barranquilla el calor es alegre y la brisa sopla constante al caer la tarde. Empaca telas livianas de lino o algodón, colores claros y protector solar.'
-        },
-        {
-          triggers: ['scooter', 'malecón', 'malecon', 'caiman'],
-          reply: 'El sábado sentiremos la velocidad y el viento en la cara junto al río. No hacen falta tacones, solo ganas de reír y dejarse llevar.'
-        }
-      ];
-
-      // 5. DOM ELEMENTS
+      // 4. DOM ELEMENTS
       const tabButtons = document.querySelectorAll('.nav-tab-btn');
       const tabViews = document.querySelectorAll('.tab-view');
       const dayTabButtons = document.querySelectorAll('.day-tab-btn');
@@ -924,6 +1071,7 @@
       const closeMapBtn = document.getElementById('close-map-btn');
       const mapModal = document.getElementById('map-modal');
       const openSimBtn = document.getElementById('open-sim-btn');
+      const secretSealBtn = document.getElementById('secret-seal-btn');
       const quickSimTrigger = document.getElementById('quick-sim-trigger');
       const closeSimBtn = document.getElementById('close-sim-btn');
       const simModal = document.getElementById('sim-modal');
@@ -938,7 +1086,7 @@
       const simDayButtons = document.querySelectorAll('.sim-day-btn');
       const currentSimTimeLabel = document.getElementById('current-sim-time-label');
 
-      // Modals
+      // Modals & Map Elements
       const eventModal = document.getElementById('event-modal');
       const eventModalBackdrop = document.getElementById('event-modal-backdrop');
       const closeEventModalBtn = document.getElementById('close-event-modal-btn');
@@ -949,19 +1097,26 @@
       const modalEventNote = document.getElementById('modal-event-note');
       const modalEventImageContainer = document.getElementById('modal-event-image-container');
       const modalEventImage = document.getElementById('modal-event-image');
+      const modalEventGmapsBtn = document.getElementById('modal-event-gmaps-btn');
 
-      // Oracle
+      // Map View Switchers
+      const showArtMapBtn = document.getElementById('show-art-map-btn');
+      const showGoogleMapBtn = document.getElementById('show-google-map-btn');
+      const artMapContainer = document.getElementById('art-map-container');
+      const googleMapContainer = document.getElementById('google-map-container');
+      const googleMapLoading = document.getElementById('google-map-loading');
+
+      // Oracle Elements
       const oracleChatFeed = document.getElementById('oracle-chat-feed');
       const oracleInputForm = document.getElementById('oracle-input-form');
       const oracleTextInput = document.getElementById('oracle-text-input');
       const oracleChips = document.querySelectorAll('.oracle-chip');
 
-      // 6. RENDER TIMELINE
+      // 5. TIMELINE RENDERER
       function isEventUnlocked(event, dayKey) {
         if (state.godMode) return true;
         if (event.isSecret === false) return true;
 
-        // Day comparison
         const dayOrder = { 'dia1': 1, 'dia2': 2, 'dia3': 3 };
         const simOrder = { 'vie': 1, 'sab': 2, 'dom': 3 };
 
@@ -971,7 +1126,6 @@
         if (currentDayIndex > eventDayIndex) return true;
         if (currentDayIndex < eventDayIndex) return false;
 
-        // Same day: check minute threshold
         return state.simMinutes >= event.minutes;
       }
 
@@ -997,7 +1151,7 @@
         timelineContainer.appendChild(headerCard);
 
         // Events list
-        currentData.events.forEach((ev, idx) => {
+        currentData.events.forEach((ev) => {
           const unlocked = isEventUnlocked(ev, dayKey);
 
           const card = document.createElement('article');
@@ -1049,11 +1203,18 @@
                   </div>
                 ` : ''}
 
+                ${ev.hasTickets ? `
+                  <button class="open-train-tickets-btn w-full py-2 px-3 rounded-xl bg-secondary-fixed text-on-secondary-fixed text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-transform border border-secondary/20">
+                    <span class="material-symbols-outlined text-[16px]">qr_code_2</span>
+                    <span>Ver Tiquetes y Códigos QR (2 Tiquetes)</span>
+                  </button>
+                ` : ''}
+
                 <div class="flex items-center justify-between pt-1 border-t border-outline-variant/20">
-                  <span class="text-[10px] font-semibold text-tertiary flex items-center gap-1">
-                    <span class="material-symbols-outlined text-[14px] fill">check_circle</span>
-                    Momento revelado
-                  </span>
+                  <a href="${ev.gmaps}" target="_blank" rel="noopener noreferrer" class="text-[11px] font-semibold text-primary hover:underline flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[14px]">location_on</span>
+                    <span>Cómo llegar</span>
+                  </a>
                   <button class="event-detail-btn text-xs font-bold text-primary hover:underline flex items-center gap-0.5" data-id="${ev.id}">
                     <span>Ver detalles</span>
                     <span class="material-symbols-outlined text-[16px]">chevron_right</span>
@@ -1106,7 +1267,7 @@
           timelineContainer.appendChild(card);
         });
 
-        // Attach event listener for detail buttons
+        // Detail buttons
         document.querySelectorAll('.event-detail-btn').forEach(btn => {
           btn.addEventListener('click', () => {
             const evId = btn.getAttribute('data-id');
@@ -1114,7 +1275,14 @@
           });
         });
 
-        // Attach event listener for riddle guess buttons
+        // Tickets modal buttons
+        document.querySelectorAll('.open-train-tickets-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            openTicketsModal();
+          });
+        });
+
+        // Riddle guess buttons
         document.querySelectorAll('.riddle-guess-btn').forEach(btn => {
           btn.addEventListener('click', () => {
             const riddle = btn.getAttribute('data-riddle');
@@ -1137,6 +1305,7 @@
         modalEventTitle.innerHTML = foundEvent.title;
         modalEventDesc.innerHTML = foundEvent.desc;
         modalEventNote.innerText = foundEvent.note || 'Preparado con todo el amor de Juan.';
+        modalEventGmapsBtn.href = foundEvent.gmaps || '#';
 
         if (foundEvent.image) {
           modalEventImage.src = foundEvent.image;
@@ -1152,7 +1321,51 @@
         eventModal.classList.add('hidden');
       }
 
-      // 7. TIME CONVERTER
+      // 5.1 TICKETS MODAL LOGIC
+      const ticketsModal = document.getElementById('tickets-modal');
+      const ticketsModalBackdrop = document.getElementById('tickets-modal-backdrop');
+      const closeTicketsModalBtn = document.getElementById('close-tickets-modal-btn');
+      const tabTicketMariajo = document.getElementById('tab-ticket-mariajo');
+      const tabTicketJuan = document.getElementById('tab-ticket-juan');
+      const ticketContentMariajo = document.getElementById('ticket-content-mariajo');
+      const ticketContentJuan = document.getElementById('ticket-content-juan');
+
+      function openTicketsModal() {
+        ticketsModal.classList.remove('hidden');
+      }
+      function closeTicketsModal() {
+        ticketsModal.classList.add('hidden');
+      }
+
+      closeTicketsModalBtn.addEventListener('click', closeTicketsModal);
+      ticketsModalBackdrop.addEventListener('click', closeTicketsModal);
+
+      tabTicketMariajo.addEventListener('click', () => {
+        tabTicketMariajo.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+        tabTicketMariajo.classList.remove('text-on-surface-variant');
+        tabTicketJuan.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+        tabTicketJuan.classList.add('text-on-surface-variant');
+
+        ticketContentMariajo.classList.remove('hidden');
+        ticketContentJuan.classList.add('hidden');
+      });
+
+      tabTicketJuan.addEventListener('click', () => {
+        tabTicketJuan.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+        tabTicketJuan.classList.remove('text-on-surface-variant');
+        tabTicketMariajo.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+        tabTicketMariajo.classList.add('text-on-surface-variant');
+
+        ticketContentJuan.classList.remove('hidden');
+        ticketContentMariajo.classList.add('hidden');
+      });
+
+      // 6. TIME CONVERTER & SYNCHRONIZATION
+      const simModeTitle = document.getElementById('sim-mode-title');
+      const simModeSubtitle = document.getElementById('sim-mode-subtitle');
+      const simModeDot = document.getElementById('sim-mode-dot');
+      const resetRealTimeBtn = document.getElementById('reset-real-time-btn');
+
       function minutesToTime(minutes) {
         const h = Math.floor(minutes / 60);
         const m = minutes % 60;
@@ -1164,17 +1377,89 @@
       function updateSimClockDisplay() {
         const timeStr = minutesToTime(state.simMinutes);
         simClockDisplay.innerText = timeStr;
-        simTimeBadge.innerText = `${timeStr} (${state.simDay.toUpperCase()})`;
-        currentSimTimeLabel.innerText = `${state.simDay.toUpperCase()} ${timeStr}`;
+
+        const dayNames = { vie: 'Viernes', sab: 'Sábado', dom: 'Domingo' };
+        const dayLabel = dayNames[state.simDay] || state.simDay.toUpperCase();
+
+        if (state.isManualTime) {
+          simTimeBadge.innerText = `${timeStr} (Simulado)`;
+          simTimeBadge.className = 'text-[10px] font-bold text-primary bg-primary-fixed px-2 py-0.5 rounded-full';
+          currentSimTimeLabel.innerText = `Simulado: ${dayLabel} ${timeStr}`;
+
+          if (simModeTitle) simModeTitle.innerText = 'Modo Simulación Manual';
+          if (simModeSubtitle) simModeSubtitle.innerText = 'Ajustado manualmente por ti';
+          if (simModeDot) simModeDot.className = 'w-2.5 h-2.5 rounded-full bg-primary';
+          if (resetRealTimeBtn) resetRealTimeBtn.classList.remove('hidden');
+        } else {
+          simTimeBadge.innerText = `${timeStr} (En vivo)`;
+          simTimeBadge.className = 'text-[10px] font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-full';
+          currentSimTimeLabel.innerText = `En vivo: ${dayLabel} ${timeStr}`;
+
+          if (simModeTitle) simModeTitle.innerText = 'Hora Actual (En vivo)';
+          if (simModeSubtitle) simModeSubtitle.innerText = 'Sincronizado con el reloj del teléfono';
+          if (simModeDot) simModeDot.className = 'w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse';
+          if (resetRealTimeBtn) resetRealTimeBtn.classList.add('hidden');
+        }
       }
 
-      // 8. TAB NAVIGATION
+      function syncWithRealTime(force = false) {
+        if (state.isManualTime && !force) return;
+
+        const now = new Date();
+        const date = now.getDate();
+
+        // Check if date corresponds to Friday 25, Saturday 26 or Sunday 27
+        if (date === 26) {
+          state.simDay = 'sab';
+          if (!state.activeDayManual) state.activeDay = 'dia2';
+        } else if (date >= 27) {
+          state.simDay = 'dom';
+          if (!state.activeDayManual) state.activeDay = 'dia3';
+        } else {
+          state.simDay = 'vie';
+          if (!state.activeDayManual) state.activeDay = 'dia1';
+        }
+
+        state.simMinutes = now.getHours() * 60 + now.getMinutes();
+
+        // Update day selector buttons in simulator
+        simDayButtons.forEach(b => {
+          if (b.getAttribute('data-sim-day') === state.simDay) {
+            b.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+            b.classList.remove('bg-surface-container', 'text-on-surface');
+          } else {
+            b.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+            b.classList.add('bg-surface-container', 'text-on-surface');
+          }
+        });
+
+        // Update day filter tabs in timeline if not set manually
+        if (!state.activeDayManual) {
+          dayTabButtons.forEach(b => {
+            if (b.getAttribute('data-day') === state.activeDay) {
+              b.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+              b.classList.remove('text-on-surface-variant');
+            } else {
+              b.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+              b.classList.add('text-on-surface-variant');
+            }
+          });
+        }
+
+        if (simSlider) simSlider.value = state.simMinutes;
+        updateSimClockDisplay();
+
+        if (state.activeTab === 'view-itinerario') {
+          renderTimeline();
+        }
+      }
+
+      // 7. TAB NAVIGATION
       tabButtons.forEach(btn => {
         btn.addEventListener('click', () => {
           const targetId = btn.getAttribute('data-target');
           state.activeTab = targetId;
 
-          // Update active view
           tabViews.forEach(view => {
             if (view.id === targetId) {
               view.classList.remove('hidden');
@@ -1183,7 +1468,6 @@
             }
           });
 
-          // Update nav button styles
           tabButtons.forEach(b => {
             if (b === btn) {
               b.classList.remove('text-on-surface-variant', 'font-medium');
@@ -1224,7 +1508,7 @@
         });
       });
 
-      // 9. PARCHMENT FOLD / UNFOLD
+      // 8. PARCHMENT FOLD / UNFOLD
       let isFolded = false;
       toggleParchmentBtn.addEventListener('click', () => {
         isFolded = !isFolded;
@@ -1241,31 +1525,39 @@
         }
       });
 
-      // 10. REPLY MESSAGE PERSISTENCE
+      // 9. REPLY MESSAGE PERSISTENCE & SERVER SYNC
       const savedReply = localStorage.getItem('mariajo_reply_message');
       if (savedReply) {
         replyTextarea.value = savedReply;
         replyToast.classList.remove('hidden');
       }
 
-      sendReplyBtn.addEventListener('click', () => {
+      sendReplyBtn.addEventListener('click', async () => {
         const text = replyTextarea.value.trim();
         if (text.length > 0) {
           localStorage.setItem('mariajo_reply_message', text);
           sendReplyBtn.disabled = true;
           sendReplyBtn.innerHTML = `<span>Guardando...</span>`;
 
-          setTimeout(() => {
-            sendReplyBtn.disabled = false;
-            sendReplyBtn.innerHTML = `<span>Guardar mi respuesta</span> <span class="material-symbols-outlined text-[15px]">send</span>`;
-            replyToast.classList.remove('hidden');
-          }, 600);
+          try {
+            await fetch('/api/reply', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ message: text, author: 'Mariajo' })
+            });
+          } catch (err) {
+            console.warn('Servidor no disponible para guardar en nube, guardado local exitoso.');
+          }
+
+          sendReplyBtn.disabled = false;
+          sendReplyBtn.innerHTML = `<span>Guardar mi respuesta</span> <span class="material-symbols-outlined text-[15px]">send</span>`;
+          replyToast.classList.remove('hidden');
         } else {
           replyTextarea.focus();
         }
       });
 
-      // 11. MAP CONTROLS
+      // 10. MAP CONTROLS & GOOGLE MAPS API INTEGRATION
       openMapBtn.addEventListener('click', () => {
         mapModal.classList.remove('hidden');
       });
@@ -1273,7 +1565,6 @@
         mapModal.classList.add('hidden');
       });
 
-      // Map pin clicks
       const mapPins = document.querySelectorAll('.map-pin');
       const mapPreviewCard = document.getElementById('map-preview-card');
       const mapPreviewIcon = document.getElementById('map-preview-icon');
@@ -1281,6 +1572,8 @@
       const mapPreviewTitle = document.getElementById('map-preview-title');
       const mapPreviewTime = document.getElementById('map-preview-time');
       const mapPreviewDesc = document.getElementById('map-preview-desc');
+      const mapPreviewAddress = document.getElementById('map-preview-address');
+      const mapPreviewLink = document.getElementById('map-preview-link');
 
       mapPins.forEach(pin => {
         pin.addEventListener('click', () => {
@@ -1291,6 +1584,8 @@
             mapPreviewTitle.innerText = data.title;
             mapPreviewTime.innerText = data.time;
             mapPreviewDesc.innerHTML = data.desc;
+            mapPreviewAddress.innerText = data.address;
+            mapPreviewLink.href = data.gmaps;
             mapPreviewIcon.innerHTML = `<span class="material-symbols-outlined text-[18px]">${data.icon}</span>`;
             mapPreviewCard.classList.add('ring-2', 'ring-primary');
             setTimeout(() => mapPreviewCard.classList.remove('ring-2', 'ring-primary'), 600);
@@ -1298,7 +1593,110 @@
         });
       });
 
-      // 12. SIMULATOR CONTROLS
+      // Switcher between Editorial Art Map and Google Maps
+      showArtMapBtn.addEventListener('click', () => {
+        state.activeMapMode = 'art';
+        showArtMapBtn.classList.add('bg-primary', 'text-on-primary', 'font-bold');
+        showArtMapBtn.classList.remove('text-on-surface-variant', 'font-medium');
+        showGoogleMapBtn.classList.remove('bg-primary', 'text-on-primary', 'font-bold');
+        showGoogleMapBtn.classList.add('text-on-surface-variant', 'font-medium');
+
+        artMapContainer.classList.remove('hidden');
+        googleMapContainer.classList.add('hidden');
+      });
+
+      showGoogleMapBtn.addEventListener('click', () => {
+        state.activeMapMode = 'google';
+        showGoogleMapBtn.classList.add('bg-primary', 'text-on-primary', 'font-bold');
+        showGoogleMapBtn.classList.remove('text-on-surface-variant', 'font-medium');
+        showArtMapBtn.classList.remove('bg-primary', 'text-on-primary', 'font-bold');
+        showArtMapBtn.classList.add('text-on-surface-variant', 'font-medium');
+
+        artMapContainer.classList.add('hidden');
+        googleMapContainer.classList.remove('hidden');
+
+        initGoogleMap();
+      });
+
+      function initGoogleMap() {
+        if (state.googleMapInstance) return;
+
+        fetch('/api/config')
+          .then(r => r.json())
+          .then(cfg => {
+            if (cfg.googleMapsApiKey) {
+              loadGoogleMapsScript(cfg.googleMapsApiKey);
+            } else {
+              googleMapLoading.innerHTML = `
+                <span class="text-xs text-on-surface-variant">Configura GOOGLE_MAPS_API_KEY para habilitar la vista satelital interactiva.</span>
+              `;
+            }
+          })
+          .catch(() => {
+            googleMapLoading.innerHTML = `
+              <span class="text-xs text-on-surface-variant">Puedes usar el mapa editorial y los botones de Cómo llegar.</span>
+            `;
+          });
+      }
+
+      function loadGoogleMapsScript(apiKey) {
+        if (window.google && window.google.maps) {
+          renderGoogleMapInstance();
+          return;
+        }
+
+        const script = document.createElement('script');
+        script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initGoogleMapGlobalCallback`;
+        script.async = true;
+        script.defer = true;
+        window.initGoogleMapGlobalCallback = function() {
+          renderGoogleMapInstance();
+        };
+        document.head.appendChild(script);
+      }
+
+      function renderGoogleMapInstance() {
+        googleMapLoading.classList.add('hidden');
+        const barranquillaCenter = { lat: 11.0048, lng: -74.8105 };
+
+        state.googleMapInstance = new google.maps.Map(document.getElementById('google-map-view'), {
+          zoom: 12,
+          center: barranquillaCenter,
+          mapTypeId: 'roadmap',
+          disableDefaultUI: false,
+          zoomControl: true,
+          styles: [
+            { featureType: 'poi', stylers: [{ visibility: 'simplified' }] }
+          ]
+        });
+
+        // Add markers
+        Object.values(MAP_POINTS).forEach(point => {
+          if (point.coords) {
+            const marker = new google.maps.Marker({
+              position: point.coords,
+              map: state.googleMapInstance,
+              title: point.title
+            });
+
+            const infowindow = new google.maps.InfoWindow({
+              content: `
+                <div style="font-family:'Plus Jakarta Sans',sans-serif;padding:4px;color:#1c1c18;">
+                  <strong style="font-family:'Playfair Display',serif;font-size:14px;color:#9d3e1a;">${point.title}</strong>
+                  <p style="font-size:11px;margin:3px 0;color:#56423c;">${point.address}</p>
+                  <a href="${point.gmaps}" target="_blank" style="font-size:11px;color:#871d2d;font-weight:bold;text-decoration:underline;">Abrir ruta</a>
+                </div>
+              `
+            });
+
+            marker.addListener('click', () => {
+              infowindow.open(state.googleMapInstance, marker);
+            });
+          }
+        });
+      }
+
+      // 11. SIMULATOR CONTROLS & SECRET ACCESS
       function openSimulator() {
         simModal.classList.remove('hidden');
       }
@@ -1307,15 +1705,29 @@
         renderTimeline();
       }
 
+      // Secret access via wax seal (3 clicks within 2 seconds)
+      let sealClickCount = 0;
+      let sealClickTimer = null;
+      secretSealBtn.addEventListener('click', () => {
+        sealClickCount++;
+        clearTimeout(sealClickTimer);
+        sealClickTimer = setTimeout(() => { sealClickCount = 0; }, 2000);
+
+        if (sealClickCount >= 3) {
+          sealClickCount = 0;
+          openSimulator();
+        }
+      });
+
       openSimBtn.addEventListener('click', openSimulator);
       quickSimTrigger.addEventListener('click', openSimulator);
       closeSimBtn.addEventListener('click', closeSimulator);
       simBackdrop.addEventListener('click', closeSimulator);
       applySimBtn.addEventListener('click', closeSimulator);
 
-      // Simulator day buttons
       simDayButtons.forEach(btn => {
         btn.addEventListener('click', () => {
+          state.isManualTime = true;
           const simDay = btn.getAttribute('data-sim-day');
           state.simDay = simDay;
 
@@ -1333,114 +1745,157 @@
         });
       });
 
-      // Slider
       simSlider.addEventListener('input', (e) => {
+        state.isManualTime = true;
         state.simMinutes = parseInt(e.target.value, 10);
         updateSimClockDisplay();
       });
 
-      // Steppers
       simMinusBtn.addEventListener('click', () => {
+        state.isManualTime = true;
         state.simMinutes = Math.max(360, state.simMinutes - 60);
         simSlider.value = state.simMinutes;
         updateSimClockDisplay();
       });
       simPlusBtn.addEventListener('click', () => {
+        state.isManualTime = true;
         state.simMinutes = Math.min(1410, state.simMinutes + 60);
         simSlider.value = state.simMinutes;
         updateSimClockDisplay();
       });
 
-      // God Mode Toggle
-      godModeCheckbox.addEventListener('change', (e) => {
-        state.godMode = e.target.checked;
-        renderTimeline();
-      });
-
-      // 13. EVENT MODAL DISMISS
-      closeEventModalBtn.addEventListener('click', closeEventModal);
-      closeEventModalCta.addEventListener('click', closeEventModal);
-      eventModalBackdrop.addEventListener('click', closeEventModal);
-
-      // 14. ORACLE CHAT
-      function appendUserMessage(text) {
-        const msg = document.createElement('div');
-        msg.className = 'flex flex-col items-end max-w-[85%] self-end fade-enter';
-        msg.innerHTML = `
-          <div class="bg-primary text-on-primary px-3.5 py-2 rounded-2xl rounded-tr-sm shadow-sm text-xs leading-relaxed">
-            ${text}
-          </div>
-          <span class="text-[10px] text-outline mt-0.5 pr-1">Tú</span>
-        `;
-        oracleChatFeed.appendChild(msg);
-        oracleChatFeed.scrollTop = oracleChatFeed.scrollHeight;
+      if (resetRealTimeBtn) {
+        resetRealTimeBtn.addEventListener('click', () => {
+          state.isManualTime = false;
+          syncWithRealTime(true);
+        });
       }
 
-      function appendOracleResponse(text) {
-        const msg = document.createElement('div');
-        msg.className = 'flex items-start gap-2 max-w-[90%] self-start fade-enter';
-        msg.innerHTML = `
-          <div class="w-7 h-7 rounded-full overflow-hidden flex-shrink-0 bg-surface-container mt-1">
-            <img src="assets/sello_romantico.png" alt="Oraculo" class="w-full h-full object-cover"/>
-          </div>
-          <div class="bg-surface-container-low text-on-surface p-3.5 rounded-2xl rounded-tl-sm shadow-sm border border-outline-variant/30 flex flex-col gap-1">
-            <div class="flex items-center gap-1">
-              <span class="material-symbols-outlined text-[15px] text-primary">auto_awesome</span>
-              <span class="text-[10px] font-bold text-primary uppercase tracking-wider">Susurro del Guardián</span>
-            </div>
-            <p class="font-serif italic text-xs leading-relaxed text-on-surface">
-              "${text}"
-            </p>
-          </div>
-        `;
-        oracleChatFeed.appendChild(msg);
-        oracleChatFeed.scrollTop = oracleChatFeed.scrollHeight;
+      if (godModeCheckbox) {
+        godModeCheckbox.addEventListener('change', (e) => {
+          state.godMode = e.target.checked;
+          renderTimeline();
+        });
       }
 
-      function handleOracleQuery(queryText) {
-        if (!queryText.trim()) return;
-        appendUserMessage(queryText);
+      // Event modal dismiss handlers
+      if (closeEventModalBtn) closeEventModalBtn.addEventListener('click', closeEventModal);
+      if (closeEventModalCta) closeEventModalCta.addEventListener('click', closeEventModal);
+      if (eventModalBackdrop) eventModalBackdrop.addEventListener('click', closeEventModal);
 
-        const lower = queryText.toLowerCase();
-        let match = null;
-
-        for (const item of ORACLE_KNOWLEDGE) {
-          for (const trigger of item.triggers) {
-            if (lower.includes(trigger)) {
-              match = item.reply;
-              break;
-            }
-          }
-          if (match) break;
-        }
-
-        if (!match) {
-          match = 'Ese es uno de los secretos mejor custodiados por Juan. Solo te diré que involucra el río, el mar y mirarte a los ojos con la sonrisa más grande. ¡Pronto lo sabrás!';
-        }
-
-        setTimeout(() => {
-          appendOracleResponse(match);
-        }, 500);
-      }
-
-      oracleInputForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const val = oracleTextInput.value.trim();
-        if (val) {
-          handleOracleQuery(val);
-          oracleTextInput.value = '';
-        }
-      });
-
-      oracleChips.forEach(chip => {
-        chip.addEventListener('click', () => {
-          const q = chip.getAttribute('data-question');
-          handleOracleQuery(q);
+      // Day tab buttons manual override in timeline
+      dayTabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          state.activeDayManual = true;
         });
       });
 
+      // 12. ORACLE INTERACTION
+      function appendUserMessage(text) {
+        const msgDiv = document.createElement('div');
+        msgDiv.className = 'flex items-start gap-2 max-w-[85%] self-end flex-row-reverse';
+        msgDiv.innerHTML = `
+          <div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center flex-shrink-0 text-xs font-bold mt-1 shadow-sm">
+            <span>M</span>
+          </div>
+          <div class="bg-primary text-on-primary p-3 rounded-2xl rounded-tr-sm shadow-sm text-xs leading-relaxed">
+            <p>${text}</p>
+          </div>
+        `;
+        oracleChatFeed.appendChild(msgDiv);
+        msgDiv.scrollIntoView({ behavior: 'smooth', block: 'end' });
+      }
+
+      function appendOracleLoading() {
+        const loadingDiv = document.createElement('div');
+        loadingDiv.id = 'oracle-loading-indicator';
+        loadingDiv.className = 'flex items-start gap-2 max-w-[90%] self-start';
+        loadingDiv.innerHTML = `
+          <div class="w-7 h-7 rounded-full overflow-hidden flex-shrink-0 bg-surface-container mt-1">
+            <img src="assets/sello_romantico.png" alt="Oraculo" class="w-full h-full object-cover"/>
+          </div>
+          <div class="bg-surface-container-low p-3 rounded-2xl rounded-tl-sm shadow-sm border border-outline-variant/30 flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+            <span class="text-xs text-on-surface-variant font-medium">Consultando los secretos de Juan...</span>
+          </div>
+        `;
+        oracleChatFeed.appendChild(loadingDiv);
+        loadingDiv.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        return loadingDiv;
+      }
+
+      function appendOracleResponse(text) {
+        const loading = document.getElementById('oracle-loading-indicator');
+        if (loading) loading.remove();
+
+        const msgDiv = document.createElement('div');
+        msgDiv.className = 'flex items-start gap-2 max-w-[90%] self-start fade-enter';
+        msgDiv.innerHTML = `
+          <div class="w-7 h-7 rounded-full overflow-hidden flex-shrink-0 bg-surface-container mt-1 shadow-sm">
+            <img src="assets/sello_romantico.png" alt="Oraculo" class="w-full h-full object-cover"/>
+          </div>
+          <div class="bg-surface-container-low text-on-surface p-3.5 rounded-2xl rounded-tl-sm shadow-sm border border-outline-variant/30">
+            <div class="flex items-center gap-1 mb-1">
+              <span class="material-symbols-outlined text-[15px] text-tertiary">auto_awesome</span>
+              <span class="text-[10px] font-bold text-tertiary uppercase tracking-wider">El Oráculo</span>
+            </div>
+            <p class="text-xs leading-relaxed text-on-surface">${text}</p>
+          </div>
+        `;
+        oracleChatFeed.appendChild(msgDiv);
+        msgDiv.scrollIntoView({ behavior: 'smooth', block: 'end' });
+      }
+
+      async function handleOracleQuery(queryText) {
+        if (!queryText || !queryText.trim()) return;
+        const q = queryText.trim();
+        appendUserMessage(q);
+        if (oracleTextInput) oracleTextInput.value = '';
+
+        appendOracleLoading();
+
+        try {
+          const res = await fetch('/api/oracle', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: q })
+          });
+          const data = await res.json();
+          if (data && data.reply) {
+            appendOracleResponse(data.reply);
+          } else {
+            appendOracleResponse('Juan guarda los mejores secretos en su corazón. Pronto los vivirán juntos en Barranquilla.');
+          }
+        } catch (err) {
+          appendOracleResponse('Los secretos de Juan están a salvo. Te aseguro que este viaje superará cualquier expectativa.');
+        }
+      }
+
+      if (oracleInputForm) {
+        oracleInputForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          if (oracleTextInput) {
+            handleOracleQuery(oracleTextInput.value);
+          }
+        });
+      }
+
+      if (oracleChips) {
+        oracleChips.forEach(chip => {
+          chip.addEventListener('click', () => {
+            const question = chip.getAttribute('data-question');
+            if (question) handleOracleQuery(question);
+          });
+        });
+      }
+
+      // Regular tick every 10 seconds to update live time automatically
+      setInterval(() => {
+        syncWithRealTime(false);
+      }, 10000);
+
       // INITIAL RENDER
-      updateSimClockDisplay();
+      syncWithRealTime(true);
       renderTimeline();
 
     })();
