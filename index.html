@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+  <title>Nuestro Viaje — Barranquilla | Juan &amp; Mariajo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&amp;family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#fdf9f3",
+            "surface-dim": "#dddad4",
+            "surface-bright": "#fdf9f3",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f7f3ed",
+            "surface-container": "#f1ede7",
+            "surface-container-high": "#ebe8e2",
+            "surface-container-highest": "#e6e2dc",
+            "on-surface": "#1c1c18",
+            "on-surface-variant": "#56423c",
+            "inverse-surface": "#1c1917",
+            "inverse-on-surface": "#f4f0ea",
+            "outline": "#8a726a",
+            "outline-variant": "#ddc0b7",
+            "primary": "#9d3e1a",
+            "primary-container": "#bd5630",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#fffbff",
+            "primary-fixed": "#ffdbcf",
+            "secondary": "#934933",
+            "secondary-container": "#fc9e82",
+            "on-secondary-fixed": "#3a0a00",
+            "secondary-fixed": "#ffdbd1",
+            "tertiary": "#871d2d",
+            "tertiary-container": "#c54b57",
+            "on-tertiary": "#ffffff",
+            "tertiary-fixed": "#ffdada",
+            "tertiary-fixed-dim": "#ffb3b5"
+          },
+          fontFamily: {
+            serif: ["Playfair Display", "Georgia", "serif"],
+            sans: ["Plus Jakarta Sans", "system-ui", "sans-serif"]
+          },
+          boxShadow: {
+            'warm-card': '0 8px 24px -4px rgba(135, 29, 45, 0.07), 0 2px 6px -1px rgba(42, 36, 33, 0.04)',
+            'warm-lift': '0 14px 32px -6px rgba(157, 62, 26, 0.18)',
+            'parchment': '0 16px 36px -6px rgba(135, 29, 45, 0.08), 0 4px 12px rgba(42, 36, 33, 0.03)'
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    @layer base {
+      html, body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        background-color: #fdf9f3;
+        color: #1c1c18;
+        font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      }
+      body {
+        overscroll-behavior-y: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .pb-safe {
+        padding-bottom: max(env(safe-area-inset-bottom, 0px), 16px);
+      }
+      .pt-safe {
+        padding-top: max(env(safe-area-inset-top, 0px), 0px);
+      }
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+      user-select: none;
+    }
+    .material-symbols-outlined.fill {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .watermark-pattern {
+      background-image: radial-gradient(#9d3e1a 0.75px, transparent 0.75px);
+      background-size: 16px 16px;
+    }
+    .paper-texture {
+      background-color: #ffffff;
+      background-image: linear-gradient(180deg, rgba(253,249,243,0.6) 0%, rgba(247,243,237,0.8) 100%);
+    }
+    .fade-enter {
+      animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased flex flex-col min-h-screen selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+
+  <!-- TOP HEADER -->
+  <header class="fixed top-0 w-full z-40 pt-safe bg-surface/90 backdrop-blur-xl border-b border-outline-variant/30 shadow-[0_4px_20px_-4px_rgba(135,29,45,0.05)]">
+    <div class="h-16 px-4 max-w-lg mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-3 min-w-0">
+        <div class="relative w-9 h-9 rounded-full overflow-hidden shadow-[0_2px_8px_rgba(157,62,26,0.2)] bg-surface-container ring-1 ring-primary/20 flex-shrink-0">
+          <img src="assets/sello_romantico.png" alt="Sello Nuestro Viaje" class="w-full h-full object-cover"/>
+        </div>
+        <div class="flex flex-col min-w-0">
+          <span class="font-serif font-semibold text-lg text-primary tracking-tight leading-tight truncate">Nuestro Viaje</span>
+          <span class="text-[11px] font-medium text-on-surface-variant uppercase tracking-wider truncate">Barranquilla — Sep 2026</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-1.5 flex-shrink-0">
+        <button id="open-map-btn" aria-label="Abrir mapa de la ruta secreta" class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-low hover:bg-surface-container text-primary transition-all active:scale-95 shadow-sm">
+          <span class="material-symbols-outlined text-[20px]">map</span>
+        </button>
+        <button id="open-sim-btn" aria-label="Ajustes y simulador de tiempo" class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-low hover:bg-surface-container text-on-surface-variant transition-all active:scale-95 shadow-sm">
+          <span class="material-symbols-outlined text-[20px]">tune</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN VIEW CONTAINER -->
+  <main class="flex-1 w-full max-w-lg mx-auto pt-20 pb-28 px-4 flex flex-col">
+
+    <!-- TAB 1: PARA TI (CARTA DE BIENVENIDA) -->
+    <section id="view-para-ti" class="tab-view flex flex-col items-center fade-enter">
+      <!-- Floating Wax Seal Badge -->
+      <div class="relative z-20 flex flex-col items-center -mb-8">
+        <div class="w-16 h-16 rounded-full bg-surface-container-lowest shadow-[0_10px_25px_-4px_rgba(157,62,26,0.3),0_2px_6px_rgba(42,36,33,0.06)] p-1 flex items-center justify-center">
+          <img src="assets/sello_romantico.png" alt="Sello Romantico" class="w-full h-full object-cover rounded-full"/>
+        </div>
+      </div>
+
+      <!-- The Parchment Sheet -->
+      <article id="parchment-letter" class="w-full bg-surface-container-lowest rounded-2xl shadow-parchment px-5 pt-11 pb-6 relative overflow-hidden transition-all duration-500 border border-outline-variant/30">
+        <!-- SVG Watermark Accent -->
+        <div class="absolute -right-10 -top-10 opacity-5 pointer-events-none text-primary">
+          <svg class="w-48 h-48" fill="currentColor" viewBox="0 0 200 200">
+            <circle cx="100" cy="100" fill="none" r="80" stroke="currentColor" stroke-dasharray="4 6" stroke-width="1.5"></circle>
+            <path d="M100 20 L100 180 M20 100 L180 100 M43.43 43.43 L156.57 156.57 M43.43 156.57 L156.57 43.43" stroke="currentColor" stroke-dasharray="2 4" stroke-width="1"></path>
+            <circle cx="100" cy="100" fill="none" r="30" stroke="currentColor" stroke-width="1"></circle>
+          </svg>
+        </div>
+
+        <div class="flex items-center justify-between w-full mb-3 text-primary">
+          <div class="flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[18px]">explore</span>
+            <span class="text-[11px] font-semibold uppercase tracking-[0.2em]">Destino Sorpresa</span>
+          </div>
+          <div class="flex items-center gap-1 text-on-surface-variant">
+            <span class="material-symbols-outlined text-[15px]">calendar_month</span>
+            <span class="text-[11px] font-medium tracking-wide">25 — 27 Sep 2026</span>
+          </div>
+        </div>
+
+        <div class="flex flex-col mb-4">
+          <h1 class="font-serif text-2xl font-bold text-primary tracking-tight leading-snug">
+            Mi cómplice favorita,
+          </h1>
+          <p class="font-serif italic text-sm text-on-surface-variant mt-0.5">
+            Un fin de semana pensado con todo mi amor para ti.
+          </p>
+        </div>
+
+        <div class="space-y-3.5 text-on-surface text-[15px] leading-relaxed">
+          <p>
+            Llevaba semanas soñando con este momento. Mientras cumplo con mis jornadas de trabajo en Barranquilla, mi cabeza y mi corazón solo pensaban en la tarde en que tu avión tocara tierra costeña para comenzar nuestra propia aventura.
+          </p>
+          <p>
+            Nos espera la brisa tibia donde el río Magdalena se abraza con el mar Caribe, los atardeceres dorados sobre el Malecón y aromas que te harán viajar en el tiempo. Cada paso de este itinerario fue planeado como un guiño a lo que amas, con rincones que guardan historias de tu familia y momentos para mirarnos sin prisas.
+          </p>
+          <div class="p-3.5 my-2 rounded-xl bg-surface-container-low border-l-2 border-primary flex items-start gap-2.5">
+            <span class="material-symbols-outlined text-primary text-[20px] flex-shrink-0 mt-0.5 fill">favorite</span>
+            <p class="font-serif italic text-sm text-on-surface-variant leading-relaxed">
+              "No traigas preocupaciones, solo vestidos frescos, ganas de reír y la certeza de que cada hora trae una sorpresa esperándote."
+            </p>
+          </div>
+          <p>
+            La verdadera magia empieza cuando leas esto. Prepárate para dejarte consentir y descubrir por qué eres y siempre serás mi lugar favorito en el mundo.
+          </p>
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-outline-variant/30 flex items-end justify-between">
+          <div class="flex flex-col">
+            <span class="text-[11px] font-semibold text-on-surface-variant uppercase tracking-wider">Siempre tuyo,</span>
+            <span class="font-serif italic text-xl font-bold text-primary mt-0.5">Juan</span>
+          </div>
+          <div class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-primary shadow-sm">
+            <span class="material-symbols-outlined text-[18px] fill">favorite</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Toggle Fold / Unfold Action -->
+      <div class="w-full flex justify-center my-4">
+        <button id="toggle-parchment-btn" class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface-variant text-xs font-semibold tracking-wide transition-all shadow-sm active:scale-95">
+          <span id="toggle-parchment-icon" class="material-symbols-outlined text-[18px]">expand_less</span>
+          <span id="toggle-parchment-text">Doblar carta / Escribirme</span>
+        </button>
+      </div>
+
+      <!-- Interactive Reply Pad -->
+      <div id="reply-card" class="w-full bg-surface-container-low rounded-2xl shadow-warm-card p-4 transition-all duration-300 border border-outline-variant/30">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-2">
+            <div class="w-7 h-7 rounded-full bg-secondary-container/40 flex items-center justify-center text-primary">
+              <span class="material-symbols-outlined text-[16px]">edit_note</span>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-serif font-bold text-sm text-on-surface leading-tight">Tu nota para Juan</span>
+              <span class="text-[11px] text-on-surface-variant">Escríbeme tus sospechas o lo que sientes</span>
+            </div>
+          </div>
+          <span class="material-symbols-outlined text-secondary text-[20px]">mail</span>
+        </div>
+
+        <div class="relative w-full rounded-xl bg-surface-container-lowest p-3 shadow-inner border border-outline-variant/20 mb-3">
+          <textarea id="reply-textarea" rows="3" class="w-full bg-transparent text-on-surface placeholder:text-on-surface-variant/50 text-sm focus:outline-none resize-none leading-relaxed" placeholder="Escribe aquí tu mensaje secreto o qué te imaginas que haremos..."></textarea>
+        </div>
+
+        <div class="flex items-center justify-between gap-2">
+          <span class="text-[11px] text-on-surface-variant flex items-center gap-1">
+            <span class="material-symbols-outlined text-[14px] text-tertiary">lock</span>
+            Solo visible para los dos
+          </span>
+          <button id="send-reply-btn" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-primary hover:bg-primary-container text-on-primary text-xs font-semibold shadow-sm transition-all active:scale-95">
+            <span>Guardar mi respuesta</span>
+            <span class="material-symbols-outlined text-[15px]">send</span>
+          </button>
+        </div>
+
+        <div id="reply-toast" class="hidden mt-3 p-2.5 rounded-xl bg-surface-container flex items-center gap-2 border border-outline-variant/30">
+          <span class="material-symbols-outlined text-primary text-[18px] fill">check_circle</span>
+          <span class="text-xs text-on-surface font-medium">Respuesta sellada con amor en el diario de viaje.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: ITINERARIO (LINEA DE TIEMPO) -->
+    <section id="view-itinerario" class="tab-view hidden flex-col gap-4 fade-enter">
+      <!-- Section Title & Status Strip -->
+      <div class="flex flex-col gap-1">
+        <div class="flex items-center justify-between">
+          <span id="itinerary-status-badge" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed text-[11px] font-bold uppercase tracking-wider">
+            <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+            Fin de semana en Barranquilla
+          </span>
+          <button id="quick-sim-trigger" class="text-[11px] font-semibold text-primary hover:underline flex items-center gap-1">
+            <span class="material-symbols-outlined text-[14px]">tune</span>
+            <span id="current-sim-time-label">Viernes 17:00</span>
+          </button>
+        </div>
+        <h2 class="font-serif text-2xl font-bold text-on-surface tracking-tight mt-1">
+          Nuestra Aventura
+        </h2>
+        <p class="text-xs text-on-surface-variant leading-relaxed">
+          Cada momento tiene su hora y su motivo. Descubre paso a paso lo que hemos preparado.
+        </p>
+      </div>
+
+      <!-- Day Filter Pills -->
+      <div class="grid grid-cols-3 gap-2 bg-surface-container-low p-1.5 rounded-2xl border border-outline-variant/30">
+        <button class="day-tab-btn active py-2 px-1 rounded-xl text-center transition-all bg-primary text-on-primary shadow-sm" data-day="dia1">
+          <span class="block text-[10px] uppercase font-bold tracking-wider opacity-85">Día 1</span>
+          <span class="font-serif font-bold text-xs">Viernes 25</span>
+        </button>
+        <button class="day-tab-btn py-2 px-1 rounded-xl text-center transition-all text-on-surface-variant hover:bg-surface-container" data-day="dia2">
+          <span class="block text-[10px] uppercase font-bold tracking-wider opacity-75">Día 2</span>
+          <span class="font-serif font-bold text-xs">Sábado 26</span>
+        </button>
+        <button class="day-tab-btn py-2 px-1 rounded-xl text-center transition-all text-on-surface-variant hover:bg-surface-container" data-day="dia3">
+          <span class="block text-[10px] uppercase font-bold tracking-wider opacity-75">Día 3</span>
+          <span class="font-serif font-bold text-xs">Domingo 27</span>
+        </button>
+      </div>
+
+      <!-- Timeline Feed Container -->
+      <div id="timeline-container" class="flex flex-col gap-4 relative mt-1">
+        <!-- Day cards will be rendered dynamically by JavaScript -->
+      </div>
+    </section>
+
+    <!-- TAB 3: PREGUNTAS (EL ORACULO DEL VIAJE) -->
+    <section id="view-preguntas" class="tab-view hidden flex-col gap-4 fade-enter">
+      <!-- Oracle Banner -->
+      <div class="w-full bg-surface-container-low rounded-2xl p-4 shadow-sm relative overflow-hidden border border-outline-variant/30">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-full overflow-hidden shadow-sm flex-shrink-0 bg-surface-container ring-1 ring-primary/20">
+            <img src="assets/sello_romantico.png" alt="Oraculo" class="w-full h-full object-cover"/>
+          </div>
+          <div class="flex flex-col min-w-0">
+            <div class="flex items-center gap-1.5">
+              <h2 class="font-serif font-bold text-base text-primary tracking-tight">El Oráculo del Viaje</h2>
+              <span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant text-[10px] font-semibold">En línea</span>
+            </div>
+            <p class="text-xs text-on-surface-variant">Guardián cómplice de los secretos de Juan</p>
+          </div>
+        </div>
+        <p class="text-xs text-on-surface-variant/90 bg-surface-container-lowest/80 rounded-xl p-2.5 mt-2.5 leading-relaxed">
+          Hazme preguntas sobre qué empacar, el clima o qué esperar en Barranquilla... responderé con pistas y cariño, pero sin arruinarte la sorpresa completa.
+        </p>
+      </div>
+
+      <!-- Quick Suggestion Chips -->
+      <div class="flex flex-col gap-1.5">
+        <span class="text-[11px] font-bold text-secondary uppercase tracking-wider">Preguntas frecuentes</span>
+        <div class="flex gap-2 overflow-x-auto pb-1 no-scrollbar -mx-4 px-4">
+          <button class="oracle-chip flex-shrink-0 bg-surface-container-low hover:bg-surface-container text-left p-2.5 rounded-xl border border-outline-variant/30 shadow-sm active:scale-95 transition-all" data-question="¿Qué calzado debo empacar para este viaje?">
+            <span class="text-[11px] font-bold text-primary block">Calzado</span>
+            <span class="text-xs text-on-surface">¿Qué calzado debo llevar?</span>
+          </button>
+          <button class="oracle-chip flex-shrink-0 bg-surface-container-low hover:bg-surface-container text-left p-2.5 rounded-xl border border-outline-variant/30 shadow-sm active:scale-95 transition-all" data-question="¿Habrá mar, playa o agua en el plan?">
+            <span class="text-[11px] font-bold text-primary block">Sol y brisa</span>
+            <span class="text-xs text-on-surface">¿Habrá mar o río en el plan?</span>
+          </button>
+          <button class="oracle-chip flex-shrink-0 bg-surface-container-low hover:bg-surface-container text-left p-2.5 rounded-xl border border-outline-variant/30 shadow-sm active:scale-95 transition-all" data-question="¿Qué empaco para la noche del viernes?">
+            <span class="text-[11px] font-bold text-primary block">Viernes noche</span>
+            <span class="text-xs text-on-surface">¿Qué empaco para la primera noche?</span>
+          </button>
+          <button class="oracle-chip flex-shrink-0 bg-surface-container-low hover:bg-surface-container text-left p-2.5 rounded-xl border border-outline-variant/30 shadow-sm active:scale-95 transition-all" data-question="¿Tendremos algún momento nostálgico o familiar?">
+            <span class="text-[11px] font-bold text-primary block">Corazón</span>
+            <span class="text-xs text-on-surface">¿Habrá un momento especial familiar?</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Chat Messages Container -->
+      <div id="oracle-chat-feed" class="flex flex-col gap-3 pb-24">
+        <!-- Initial Bot Greeting -->
+        <div class="flex items-start gap-2 max-w-[90%] self-start">
+          <div class="w-7 h-7 rounded-full overflow-hidden flex-shrink-0 bg-surface-container mt-1">
+            <img src="assets/sello_romantico.png" alt="Oraculo" class="w-full h-full object-cover"/>
+          </div>
+          <div class="bg-surface-container-low text-on-surface p-3.5 rounded-2xl rounded-tl-sm shadow-sm border border-outline-variant/30">
+            <div class="flex items-center gap-1 mb-1">
+              <span class="material-symbols-outlined text-[15px] text-tertiary">auto_awesome</span>
+              <span class="text-[10px] font-bold text-tertiary uppercase tracking-wider">Guardián de Secretos</span>
+            </div>
+            <p class="text-xs leading-relaxed">
+              ¡Hola Mariajo! Conozco cada rincón, cada reserva y cada suspiro planeado para este viaje. Hazme cualquier pregunta y te daré pistas en verso para que hagas tu maleta perfecta.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating Chat Input Bar -->
+      <div class="fixed bottom-20 left-0 right-0 px-4 max-w-lg mx-auto z-30 pointer-events-none">
+        <form id="oracle-input-form" class="pointer-events-auto bg-surface-container-lowest/95 backdrop-blur-md rounded-full shadow-[0_12px_32px_-4px_rgba(157,62,26,0.2)] p-1.5 flex items-center gap-2 border border-outline-variant/40">
+          <div class="pl-3 flex items-center justify-center text-primary">
+            <span class="material-symbols-outlined text-[20px]">help_outline</span>
+          </div>
+          <input id="oracle-text-input" type="text" autocomplete="off" placeholder="Pregúntale al oráculo..." class="flex-1 min-w-0 bg-transparent py-2 text-xs text-on-surface placeholder:text-outline focus:outline-none"/>
+          <button type="submit" aria-label="Enviar pregunta" class="w-10 h-10 rounded-full bg-primary hover:bg-primary-container text-on-primary flex items-center justify-center flex-shrink-0 transition-transform active:scale-95 shadow-sm">
+            <span class="material-symbols-outlined text-[18px]">send</span>
+          </button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- BOTTOM NAVIGATION BAR -->
+  <nav class="fixed bottom-0 w-full z-40 pb-safe bg-surface/90 backdrop-blur-xl border-t border-outline-variant/30 shadow-[0_-8px_24px_-4px_rgba(135,29,45,0.07)]">
+    <div class="h-16 px-4 grid grid-cols-3 items-center max-w-lg mx-auto">
+      <button class="nav-tab-btn flex flex-col items-center justify-center min-h-[44px] gap-1 transition-colors text-primary font-bold" data-target="view-para-ti">
+        <span class="material-symbols-outlined text-[22px] fill">mark_email_unread</span>
+        <span class="text-[11px] tracking-tight">Para ti</span>
+      </button>
+      <button class="nav-tab-btn flex flex-col items-center justify-center min-h-[44px] gap-1 transition-colors text-on-surface-variant font-medium" data-target="view-itinerario">
+        <span class="material-symbols-outlined text-[22px]">explore</span>
+        <span class="text-[11px] tracking-tight">Itinerario</span>
+      </button>
+      <button class="nav-tab-btn flex flex-col items-center justify-center min-h-[44px] gap-1 transition-colors text-on-surface-variant font-medium" data-target="view-preguntas">
+        <span class="material-symbols-outlined text-[22px]">auto_awesome</span>
+        <span class="text-[11px] tracking-tight">Preguntas</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MODAL: RUTA SECRETA (MAPA VECTORIAL ILUSTRADO) -->
+  <div id="map-modal" class="fixed inset-0 z-50 flex flex-col bg-surface overflow-hidden hidden">
+    <!-- Map Header -->
+    <header class="h-16 px-4 flex items-center justify-between border-b border-outline-variant/30 bg-surface/90 backdrop-blur-md">
+      <div class="flex items-center gap-2">
+        <button id="close-map-btn" aria-label="Volver al itinerario" class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-low hover:bg-surface-container text-on-surface active:scale-95 transition-transform">
+          <span class="material-symbols-outlined text-[20px]">arrow_back</span>
+        </button>
+        <div>
+          <h2 class="font-serif font-bold text-base text-on-surface leading-tight">La Ruta Secreta</h2>
+          <span class="text-[11px] text-on-surface-variant">Barranquilla &amp; El Caribe</span>
+        </div>
+      </div>
+      <div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container shadow-sm">
+        <img src="assets/sello_romantico.png" alt="Sello" class="w-full h-full object-cover"/>
+      </div>
+    </header>
+
+    <!-- Map Canvas & Pins -->
+    <div class="flex-1 w-full max-w-lg mx-auto p-4 flex flex-col gap-3 overflow-y-auto">
+      <div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-surface-container-low shadow-lg border border-outline-variant/30 select-none">
+        <svg class="absolute inset-0 w-full h-full pointer-events-none" fill="none" viewBox="0 0 400 500" preserveAspectRatio="none">
+          <defs>
+            <radialGradient cx="50%" cy="50%" id="sandGradient" r="50%">
+              <stop offset="0%" stop-color="#fdf9f3" stop-opacity="0.95"></stop>
+              <stop offset="100%" stop-color="#f1ede7" stop-opacity="0.95"></stop>
+            </radialGradient>
+            <linearGradient id="riverMagdalenaGradient" x1="0%" x2="100%" y1="0%" y2="100%">
+              <stop offset="0%" stop-color="#d9e6eb" stop-opacity="0.85"></stop>
+              <stop offset="45%" stop-color="#bcd2db" stop-opacity="0.9"></stop>
+              <stop offset="100%" stop-color="#a4c2cd" stop-opacity="0.95"></stop>
+            </linearGradient>
+          </defs>
+          <rect fill="url(#sandGradient)" height="500" width="400"></rect>
+          <!-- Rio Magdalena Curve -->
+          <path d="M 120 -10 C 130 50, 200 80, 210 140 C 220 200, 310 240, 320 340 C 330 420, 390 460, 410 510 L 420 -10 Z" fill="url(#riverMagdalenaGradient)"></path>
+          <!-- Mar Caribe Coastal Water -->
+          <path d="M 0 40 C 50 60, 110 30, 150 10 L 170 -10 L 0 -10 Z" fill="#cfdee5" fill-opacity="0.6"></path>
+          <!-- Dashed secret connection trail -->
+          <path d="M 160 380 C 170 300, 190 250, 240 220 C 260 200, 240 140, 220 90" fill="none" stroke="#9d3e1a" stroke-dasharray="4 6" stroke-linecap="round" stroke-width="2.5" opacity="0.75"></path>
+        </svg>
+
+        <!-- Compass Rose -->
+        <div class="absolute top-3 right-3 z-20 flex flex-col items-center bg-surface-container-lowest/80 backdrop-blur-md p-2 rounded-full shadow-sm">
+          <span class="material-symbols-outlined text-primary text-[20px]">explore</span>
+          <span class="text-[9px] font-bold text-primary tracking-widest mt-0.5">N</span>
+        </div>
+
+        <!-- Water Labels -->
+        <div class="absolute top-4 left-4 pointer-events-none opacity-50">
+          <span class="font-serif italic text-xs text-on-surface-variant font-bold">Mar Caribe</span>
+        </div>
+        <div class="absolute bottom-16 right-4 pointer-events-none opacity-55 text-right">
+          <span class="font-serif italic text-xs text-on-surface-variant font-bold block">Río Magdalena</span>
+          <span class="text-[9px] font-semibold text-outline tracking-wider uppercase">Boca de Ceniza</span>
+        </div>
+
+        <!-- Marker 1: Aeropuerto Ernesto Cortissoz -->
+        <button class="map-pin group absolute -translate-x-1/2 -translate-y-1/2 z-30 flex flex-col items-center cursor-pointer transition-all duration-300" style="left: 42%; top: 82%;" data-pin="aeropuerto">
+          <div class="w-8 h-8 rounded-full bg-primary text-on-primary shadow-md flex items-center justify-center font-bold text-xs ring-2 ring-primary-fixed">
+            <span class="material-symbols-outlined text-[16px]">flight_land</span>
+          </div>
+          <div class="mt-0.5 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm shadow-sm">
+            <span class="text-[10px] text-on-surface font-bold">Aeropuerto BAQ</span>
+          </div>
+        </button>
+
+        <!-- Marker 2: Hotel Ibis Budget & Mancora -->
+        <button class="map-pin group absolute -translate-x-1/2 -translate-y-1/2 z-30 flex flex-col items-center cursor-pointer transition-all duration-300" style="left: 40%; top: 58%;" data-pin="hotel">
+          <div class="w-8 h-8 rounded-full bg-tertiary text-on-tertiary shadow-md flex items-center justify-center font-bold text-xs ring-2 ring-tertiary-fixed">
+            <span class="material-symbols-outlined text-[16px]">restaurant</span>
+          </div>
+          <div class="mt-0.5 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm shadow-sm">
+            <span class="text-[10px] text-on-surface font-bold">Hotel &amp; Máncora</span>
+          </div>
+        </button>
+
+        <!-- Marker 3: Gran Malecon del Rio -->
+        <button class="map-pin group absolute -translate-x-1/2 -translate-y-1/2 z-30 flex flex-col items-center cursor-pointer transition-all duration-300" style="left: 64%; top: 46%;" data-pin="malecon">
+          <div class="w-9 h-9 rounded-full bg-primary text-on-primary shadow-lg flex items-center justify-center font-bold text-xs ring-4 ring-primary-fixed animate-bounce">
+            <span class="material-symbols-outlined text-[18px]">wb_sunny</span>
+          </div>
+          <div class="mt-0.5 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm shadow-sm">
+            <span class="text-[10px] text-on-surface font-bold">Gran Malecón</span>
+          </div>
+        </button>
+
+        <!-- Marker 4: Villa Country -->
+        <button class="map-pin group absolute -translate-x-1/2 -translate-y-1/2 z-30 flex flex-col items-center cursor-pointer transition-all duration-300" style="left: 32%; top: 42%;" data-pin="villacountry">
+          <div class="w-8 h-8 rounded-full bg-secondary text-on-primary shadow-md flex items-center justify-center font-bold text-xs ring-2 ring-secondary-fixed">
+            <span class="material-symbols-outlined text-[16px]">cottage</span>
+          </div>
+          <div class="mt-0.5 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm shadow-sm">
+            <span class="text-[10px] text-on-surface font-bold">Villa Country</span>
+          </div>
+        </button>
+
+        <!-- Marker 5: Tren Puerto Mocho / Bocas de Ceniza -->
+        <button class="map-pin group absolute -translate-x-1/2 -translate-y-1/2 z-30 flex flex-col items-center cursor-pointer transition-all duration-300" style="left: 56%; top: 18%;" data-pin="puertomocho">
+          <div class="w-8 h-8 rounded-full bg-primary-container text-on-primary shadow-md flex items-center justify-center font-bold text-xs ring-2 ring-primary-fixed">
+            <span class="material-symbols-outlined text-[16px]">train</span>
+          </div>
+          <div class="mt-0.5 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm shadow-sm">
+            <span class="text-[10px] text-on-surface font-bold">Puerto Mocho</span>
+          </div>
+        </button>
+      </div>
+
+      <!-- Map Detail Preview Card -->
+      <div id="map-preview-card" class="bg-surface-container rounded-2xl p-4 shadow-sm border border-outline-variant/30 flex flex-col gap-2">
+        <div class="flex items-start justify-between">
+          <div class="flex items-center gap-2">
+            <div id="map-preview-icon" class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center text-xs font-bold">
+              <span class="material-symbols-outlined text-[18px]">wb_sunny</span>
+            </div>
+            <div>
+              <span id="map-preview-tag" class="text-[10px] font-bold text-primary uppercase tracking-wider block">Hito Destacado</span>
+              <h3 id="map-preview-title" class="font-serif font-bold text-sm text-on-surface">Gran Malecón del Río</h3>
+            </div>
+          </div>
+          <span id="map-preview-time" class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed text-[11px] font-bold">Sábado 13:00</span>
+        </div>
+        <p id="map-preview-desc" class="text-xs text-on-surface-variant leading-relaxed">
+          Paseo en scooters eléctricas por la orilla del río Magdalena, brisa fresca y almuerzo frente a la corriente dorada.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL / BOTTOM SHEET: SIMULADOR DE TIEMPO & MODO DIOS -->
+  <div id="sim-modal" class="fixed inset-0 z-50 flex flex-col justify-end bg-inverse-surface/60 backdrop-blur-sm transition-opacity duration-300 hidden">
+    <div id="sim-backdrop" class="flex-1 w-full"></div>
+    <div class="w-full max-w-lg mx-auto bg-surface-container-low rounded-t-[2rem] shadow-2xl p-5 flex flex-col gap-4 border-t border-outline-variant/30 max-h-[85vh] overflow-y-auto">
+      <div class="w-12 h-1 rounded-full bg-outline-variant/60 mx-auto -mt-1 mb-1"></div>
+      
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary text-[20px]">tune</span>
+          <h3 class="font-serif font-bold text-lg text-on-surface">Simulador del Viaje</h3>
+        </div>
+        <button id="close-sim-btn" aria-label="Cerrar simulador" class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface">
+          <span class="material-symbols-outlined text-[18px]">close</span>
+        </button>
+      </div>
+
+      <p class="text-xs text-on-surface-variant -mt-2">
+        Ajusta el día y la hora simulada para verificar cómo se desbloquean las sorpresas o activa el Modo Revelación Inmediata.
+      </p>
+
+      <!-- God Mode Toggle -->
+      <div class="bg-surface-container-lowest rounded-xl p-3.5 flex items-center justify-between border border-outline-variant/30 shadow-sm">
+        <div class="flex flex-col pr-2">
+          <span class="font-serif font-bold text-xs text-tertiary">Modo Revelación Inmediata</span>
+          <span class="text-[11px] text-on-surface-variant">Desbloquea todas las tarjetas y notas sorpresa para ver el viaje completo sin esperar.</span>
+        </div>
+        <label class="relative inline-flex items-center cursor-pointer shrink-0">
+          <input id="god-mode-checkbox" type="checkbox" class="sr-only peer"/>
+          <div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary shadow-inner"></div>
+        </label>
+      </div>
+
+      <!-- Day selector -->
+      <div class="flex flex-col gap-1.5">
+        <span class="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider">Día simulado</span>
+        <div class="grid grid-cols-3 gap-2">
+          <button class="sim-day-btn active py-2 rounded-xl text-center text-xs font-bold bg-primary text-on-primary shadow-sm" data-sim-day="vie">
+            Viernes 25
+          </button>
+          <button class="sim-day-btn py-2 rounded-xl text-center text-xs font-bold bg-surface-container text-on-surface hover:bg-surface-container-high" data-sim-day="sab">
+            Sábado 26
+          </button>
+          <button class="sim-day-btn py-2 rounded-xl text-center text-xs font-bold bg-surface-container text-on-surface hover:bg-surface-container-high" data-sim-day="dom">
+            Domingo 27
+          </button>
+        </div>
+      </div>
+
+      <!-- Time Clock & Stepper -->
+      <div class="bg-surface-container rounded-xl p-3.5 flex flex-col gap-2 border border-outline-variant/20">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold text-on-surface">Hora simulada</span>
+          <span id="sim-time-badge" class="text-[10px] font-bold text-primary bg-primary-fixed px-2 py-0.5 rounded-full">17:00 PM</span>
+        </div>
+        <div class="flex items-center justify-between bg-surface-container-lowest rounded-xl p-2.5">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-outline text-[20px]">schedule</span>
+            <span id="sim-clock-display" class="font-serif font-bold text-xl text-on-surface">17:00</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <button id="sim-minus-btn" class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface font-bold text-sm active:scale-90">-1h</button>
+            <button id="sim-plus-btn" class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface font-bold text-sm active:scale-90">+1h</button>
+          </div>
+        </div>
+        <input id="sim-slider" type="range" min="360" max="1410" step="15" value="1020" class="w-full accent-primary mt-1 cursor-pointer"/>
+        <div class="flex justify-between text-[10px] text-outline">
+          <span>06:00 Mañana</span>
+          <span>12:00 Mediodía</span>
+          <span>18:00 Atardecer</span>
+          <span>23:30 Noche</span>
+        </div>
+      </div>
+
+      <button id="apply-sim-btn" class="w-full py-3 rounded-xl bg-primary text-on-primary text-xs font-bold shadow-md hover:bg-primary-container active:scale-95 transition-all">
+        Cerrar y ver cambios
+      </button>
+    </div>
+  </div>
+
+  <!-- ITINERARY EVENT DETAILS MODAL -->
+  <div id="event-modal" class="fixed inset-0 z-50 flex flex-col justify-end bg-inverse-surface/60 backdrop-blur-sm hidden">
+    <div id="event-modal-backdrop" class="flex-1 w-full"></div>
+    <div class="w-full max-w-lg mx-auto bg-surface-container-low rounded-t-[2rem] shadow-2xl p-5 flex flex-col gap-3 max-h-[85vh] overflow-y-auto border-t border-outline-variant/30">
+      <div class="w-12 h-1 rounded-full bg-outline-variant/60 mx-auto -mt-1 mb-1"></div>
+      
+      <div class="flex items-start justify-between">
+        <div class="flex flex-col">
+          <span id="modal-event-time" class="text-[11px] font-bold text-primary uppercase tracking-wider">19:00 PM</span>
+          <h3 id="modal-event-title" class="font-serif font-bold text-xl text-on-surface leading-tight">Título del Evento</h3>
+        </div>
+        <button id="close-event-modal-btn" aria-label="Cerrar detalles" class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant">
+          <span class="material-symbols-outlined text-[18px]">close</span>
+        </button>
+      </div>
+
+      <div id="modal-event-image-container" class="w-full h-44 rounded-xl overflow-hidden shadow-sm hidden">
+        <img id="modal-event-image" src="" alt="Evento" class="w-full h-full object-cover"/>
+      </div>
+
+      <div class="p-3.5 rounded-xl bg-surface-container-lowest border border-outline-variant/20 flex flex-col gap-2">
+        <span class="text-[10px] font-bold text-tertiary uppercase tracking-wider flex items-center gap-1">
+          <span class="material-symbols-outlined text-[14px]">info</span>
+          Detalles y recomendaciones
+        </span>
+        <p id="modal-event-desc" class="text-xs text-on-surface leading-relaxed"></p>
+      </div>
+
+      <div id="modal-event-note-box" class="p-3 rounded-xl bg-secondary-fixed/40 border border-secondary/30 flex items-start gap-2">
+        <span class="material-symbols-outlined text-secondary text-[18px] flex-shrink-0 fill">favorite</span>
+        <p id="modal-event-note" class="font-serif italic text-xs text-on-secondary-fixed leading-relaxed"></p>
+      </div>
+
+      <button id="close-event-modal-cta" class="w-full py-2.5 rounded-xl bg-primary text-on-primary text-xs font-bold shadow-sm active:scale-95 transition-all mt-1">
+        Entendido
+      </button>
+    </div>
+  </div>
+
+  <!-- APPLICATION LOGIC -->
+  <script>
+    (function() {
+      // 1. STATE MANAGEMENT
+      const state = {
+        activeTab: 'view-para-ti',
+        activeDay: 'dia1',
+        simDay: 'vie',
+        simMinutes: 1020, // 17:00
+        godMode: false
+      };
+
+      // 2. ITINERARIO DATABASE (Faithful to itinerario_mariajo_1.md)
+      const ITINERARY_DATA = {
+        dia1: {
+          dayTitle: 'Viernes 25 de septiembre',
+          daySubtitle: 'La llegada, el abrazo y una noche especial',
+          events: [
+            {
+              id: 'v1',
+              time: '16:45',
+              minutes: 1005,
+              title: 'Llegada a Barranquilla &amp; Bienvenida',
+              location: 'Aeropuerto Ernesto Cortissoz (BAQ)',
+              mood: 'Bienvenida &amp; Sorpresa',
+              tag: 'Vuelo LA4162',
+              desc: 'Tu vuelo aterriza en Barranquilla a las 16:45. En la sala de llegadas te estaré esperando con la sonrisa más grande y un abrazo enorme para dar inicio a nuestro fin de semana.',
+              note: 'Todo listo para recibirte con los brazos abiertos y arrancar nuestra aventura.',
+              image: 'assets/sello_romantico.png',
+              isSecret: false,
+              mysteryRiddle: ''
+            },
+            {
+              id: 'v2',
+              time: '18:00',
+              minutes: 1080,
+              title: 'Llegada al Hotel Ibis Budget',
+              location: 'Hotel Ibis Budget Barranquilla',
+              mood: 'Descanso &amp; Alistamiento',
+              tag: 'Hospedaje',
+              desc: 'Check-in y llegada a nuestra habitación. Tiempo ideal para desempacar con calma, refrescarse del viaje y ponerse ropa linda para la noche.',
+              note: 'Ropa fresca y cómoda para salir a cenar cerquita del hotel.',
+              image: null,
+              isSecret: false,
+              mysteryRiddle: ''
+            },
+            {
+              id: 'v3',
+              time: '19:00',
+              minutes: 1140,
+              title: 'Cena Fusión en Máncora',
+              location: 'Restaurante Máncora',
+              mood: 'Sabores &amp; Recuerdos de Lima',
+              tag: 'Mesa reservada',
+              desc: 'Una velada íntima de cocina fusión peruana en Máncora. Este lugar fue elegido pensando especialmente en ti: en tus años de universidad en Lima y en tu amor absoluto por los mariscos frescos.',
+              note: 'Un brindis dedicado a tus recuerdos en Perú y a este reencuentro nuestro.',
+              image: 'assets/cena_mancora.png',
+              isSecret: true,
+              mysteryRiddle: 'Un guiño a la ciudad del Pacífico donde estudiaste y a los sabores marinos que hacen bailar tu corazón.'
+            },
+            {
+              id: 'v4',
+              time: '21:30',
+              minutes: 1290,
+              title: 'Tragos &amp; Conversación bajo la brisa',
+              location: 'Bar cerca del hotel',
+              mood: 'Tranquilidad &amp; Risas',
+              tag: 'Brisa caribeña',
+              desc: 'Una copa tranquila para conversar sin mirar el reloj, ponernos al día mirándonos a los ojos y disfrutar la primera brisa de Barranquilla.',
+              note: 'Sin afanes, solo nosotros dos celebrando el fin de semana.',
+              image: null,
+              isSecret: true,
+              mysteryRiddle: 'Copas suaves y palabras cómplices para despedir el viernes sin afanes.'
+            }
+          ]
+        },
+        dia2: {
+          dayTitle: 'Sábado 26 de septiembre',
+          daySubtitle: 'Aventura, tren, río y raíces familiares',
+          events: [
+            {
+              id: 's1',
+              time: '07:00 — 08:30',
+              minutes: 420,
+              title: 'Desayuno Buffet Caribeño',
+              location: 'Hotel Ibis Budget Barranquilla',
+              mood: 'Energía &amp; Buen despertar',
+              tag: 'Buffet incluido',
+              desc: 'Despertar sin prisas para disfrutar del desayuno buffet del hotel. Frutas frescas, café caliente y energía para el día más emocionante del viaje.',
+              note: 'Carga bien tu teléfono para las fotos que vienen hoy.',
+              image: null,
+              isSecret: false,
+              mysteryRiddle: ''
+            },
+            {
+              id: 's2',
+              time: '09:00',
+              minutes: 540,
+              title: 'Tren a la Playa de Puerto Mocho',
+              location: 'Estación Bocas de Ceniza / Cl. 106 #90-451',
+              mood: 'Tren &amp; Mar Caribe',
+              tag: 'Aventura costera',
+              desc: 'Salida en taxi hacia la estación del nuevo tren turístico. Recorrido panorámico sobre los rieles entre el río y el mar hasta llegar a la playa de Puerto Mocho. Carpa frente al mar, bebidas frías y brisa marina.',
+              note: 'Lleva traje de baño, gafas de sol y sandalias cómodas.',
+              image: 'assets/tren_puerto_mocho.jpg',
+              isSecret: true,
+              mysteryRiddle: 'Sobre rieles antiguos donde el río más grande abraza al mar... arena, brisa y sombra caribeña.'
+            },
+            {
+              id: 's3',
+              time: '13:00',
+              minutes: 780,
+              title: 'Paseo en Scooters por el Gran Malecón',
+              location: 'Gran Malecón del Río Magdalena (Caimán del Río)',
+              mood: 'Viento &amp; Río Magdalena',
+              tag: 'Scooters eléctricas',
+              desc: 'Regreso en tren y llegada al Malecón del Río. Alquiler de scooters eléctricas para recorrer la orilla del Magdalena, disfrutar la brisa y almorzar en el Caimán del Río.',
+              note: 'Paseo en dos ruedas a orillas del río más importante del país.',
+              image: 'assets/malecon_atardecer.png',
+              isSecret: true,
+              mysteryRiddle: 'El sol sobre el agua y ruedas ligeras deslizándose junto a la corriente más grande de Colombia.'
+            },
+            {
+              id: 's4',
+              time: '15:00',
+              minutes: 900,
+              title: 'Villa Country — La Casa de tu Papá',
+              location: 'Barrio Villa Country',
+              mood: 'Memoria &amp; Homenaje familiar',
+              tag: 'Momento del corazón',
+              desc: 'Caminata tranquila de 30 minutos hacia el tradicional barrio Villa Country. Visitaremos la casa donde creció tu papá cuando era niño, un tributo lleno de amor a su memoria y a las raíces de tu familia.',
+              note: 'Haremos una parada al lado para tomar algo refrescante mientras compartimos recuerdos.',
+              image: 'assets/villa_country.jpg',
+              isSecret: true,
+              mysteryRiddle: 'Calles arboladas que guardan los primeros pasos y la infancia de la persona que más admiras.'
+            },
+            {
+              id: 's5',
+              time: '19:30',
+              minutes: 1170,
+              title: 'Cena Relajada &amp; Noche en Barranquilla',
+              location: 'Cerca del Hotel',
+              mood: 'Descanso &amp; Amor',
+              tag: 'Cena informal',
+              desc: 'Regreso al hotel tras un día lleno de emociones. Cena informal, sabrosa y sin prisas en los alrededores para consentirnos y recargar energías.',
+              note: 'Tiempo para descansar plácidamente juntos.',
+              image: null,
+              isSecret: false,
+              mysteryRiddle: ''
+            }
+          ]
+        },
+        dia3: {
+          dayTitle: 'Domingo 27 de septiembre',
+          daySubtitle: 'Despedida dulce y reencuentro en Bogotá',
+          events: [
+            {
+              id: 'd1',
+              time: '07:00 — 09:30',
+              minutes: 420,
+              title: 'Último Desayuno &amp; Maletas',
+              location: 'Hotel Ibis Budget',
+              mood: 'Aroma a café &amp; Calma',
+              tag: 'Desayuno',
+              desc: 'Desayunamos juntos en el hotel y preparamos las maletas con el corazón lleno de momentos inolvidables.',
+              note: 'Revisar no olvidar nada en la habitación.',
+              image: null,
+              isSecret: false,
+              mysteryRiddle: ''
+            },
+            {
+              id: 'd2',
+              time: '11:30',
+              minutes: 690,
+              title: 'Rumbo al Aeropuerto Ernesto Cortissoz',
+              location: 'Aeropuerto BAQ',
+              mood: 'Despedida en Barranquilla',
+              tag: 'Vuelo LA4149',
+              desc: 'Llegada con tiempo al aeropuerto (antes de las 11:42). Almorzaremos juntos allí antes de que entres a la sala de abordaje. Tu vuelo sale a las 13:45 hacia Bogotá.',
+              note: 'Te acompaño hasta el filtro de seguridad con un beso para el viaje.',
+              image: null,
+              isSecret: false,
+              mysteryRiddle: ''
+            },
+            {
+              id: 'd3',
+              time: '15:20 — 17:15',
+              minutes: 920,
+              title: 'Reencuentro en Bogotá &amp; Regreso a Casa',
+              location: 'Aeropuerto El Dorado (BOG)',
+              mood: 'Juntos de nuevo',
+              tag: 'Vuelo LA4151 Juan',
+              desc: 'Aterrizas en Bogotá a las 15:20 y me esperas un ratito mientras aterrizo a las 17:05. Nos encontramos en El Dorado, pedimos un Uber juntos directo a tu casa, y de ahí tomo mi bus con la sonrisa más grande por haber vivido este viaje contigo.',
+              note: 'El mejor final: cerrar el viaje exactamente como empezó, juntos.',
+              image: 'assets/sello_romantico.png',
+              isSecret: true,
+              mysteryRiddle: 'Tú llegas primero, yo llego después... y al final de la tarde, el mismo camino de regreso.'
+            }
+          ]
+        }
+      };
+
+      // 3. MAP DATA
+      const MAP_POINTS = {
+        aeropuerto: {
+          title: 'Aeropuerto Ernesto Cortissoz (BAQ)',
+          tag: 'Punto de Llegada y Salida',
+          time: 'Viernes 16:45 &amp; Domingo 11:30',
+          desc: 'Donde inicia la magia al verte llegar a la sala de espera, y donde cerramos la primera etapa del viaje.',
+          icon: 'flight_land'
+        },
+        hotel: {
+          title: 'Hotel Ibis Budget &amp; Máncora',
+          tag: 'Hospedaje &amp; Cena Especial',
+          time: 'Viernes 19:00',
+          desc: 'Nuestra base de descanso y la mesa reservada en Máncora para disfrutar de la mejor fusión peruana en honor a Lima.',
+          icon: 'restaurant'
+        },
+        malecon: {
+          title: 'Gran Malecón del Río Magdalena',
+          tag: 'Paseo en Scooters',
+          time: 'Sábado 13:00',
+          desc: 'Caminata y paseo en scooters eléctricas frente a la corriente dorada del río más grande de Colombia.',
+          icon: 'wb_sunny'
+        },
+        villacountry: {
+          title: 'Barrio Villa Country',
+          tag: 'Tributo Familiar',
+          time: 'Sábado 15:00',
+          desc: 'Recorrido nostálgico y sentido por la casa donde creció tu papá, rodeada de almendros y memoria.',
+          icon: 'cottage'
+        },
+        puertomocho: {
+          title: 'Playa de Puerto Mocho &amp; Tren',
+          tag: 'Aventura Costera',
+          time: 'Sábado 09:00',
+          desc: 'Nuevo tren turístico hacia la playa de Puerto Mocho y Bocas de Ceniza, carpa y brisa del Caribe.',
+          icon: 'train'
+        }
+      };
+
+      // 4. ORACLE RESPONSES DATABASE
+      const ORACLE_KNOWLEDGE = [
+        {
+          triggers: ['calzado', 'zapatos', 'tenis', 'tacones', 'sandalias'],
+          reply: 'Para el día de sol y tren, empaca sandalias cómodas y calzado ligero. Para la tarde del sábado caminaremos un poco, así que unos tenis frescos serán tus mejores aliados. Para las noches, algo lindo pero cómodo: en Barranquilla la brisa premia la frescura.'
+        },
+        {
+          triggers: ['mar', 'playa', 'rio', 'agua', 'piscina', 'vestido de baño', 'bañador'],
+          reply: 'Sí, viajera curiosa: el agua será protagonista. No solo veremos el imponente río Magdalena bailar con la brisa, sino que unos rieles nos llevarán a donde el mar caribe toca la orilla. Empaca tu traje de baño favorito y gafas de sol.'
+        },
+        {
+          triggers: ['viernes', 'noche', 'primera noche', 'cena', 'mancora', 'llegada'],
+          reply: 'Para el viernes por la noche, Juan ha pensado en un lugar especial con aromas y sabores que te traerán recuerdos de una ciudad costera del sur donde viviste una gran etapa. Un vestido fresco y bonito será perfecto.'
+        },
+        {
+          triggers: ['familiar', 'papa', 'padre', 'nostalgia', 'villa country', 'recuerdo'],
+          reply: 'El sábado en la tarde habrá una parada que tocará hondo las fibras de tu corazón. Un paseo bajo la sombra de árboles tradicionales hacia las raíces y la infancia de alguien que amas profundamente.'
+        },
+        {
+          triggers: ['clima', 'calor', 'sol', 'temperatura', 'frio'],
+          reply: 'En Barranquilla el calor es alegre y la brisa sopla constante al caer la tarde. Empaca telas livianas de lino o algodón, colores claros y protector solar.'
+        },
+        {
+          triggers: ['scooter', 'malecón', 'malecon', 'caiman'],
+          reply: 'El sábado sentiremos la velocidad y el viento en la cara junto al río. No hacen falta tacones, solo ganas de reír y dejarse llevar.'
+        }
+      ];
+
+      // 5. DOM ELEMENTS
+      const tabButtons = document.querySelectorAll('.nav-tab-btn');
+      const tabViews = document.querySelectorAll('.tab-view');
+      const dayTabButtons = document.querySelectorAll('.day-tab-btn');
+      const timelineContainer = document.getElementById('timeline-container');
+      const toggleParchmentBtn = document.getElementById('toggle-parchment-btn');
+      const parchment = document.getElementById('parchment-letter');
+      const toggleParchmentIcon = document.getElementById('toggle-parchment-icon');
+      const toggleParchmentText = document.getElementById('toggle-parchment-text');
+      const replyTextarea = document.getElementById('reply-textarea');
+      const sendReplyBtn = document.getElementById('send-reply-btn');
+      const replyToast = document.getElementById('reply-toast');
+      const openMapBtn = document.getElementById('open-map-btn');
+      const closeMapBtn = document.getElementById('close-map-btn');
+      const mapModal = document.getElementById('map-modal');
+      const openSimBtn = document.getElementById('open-sim-btn');
+      const quickSimTrigger = document.getElementById('quick-sim-trigger');
+      const closeSimBtn = document.getElementById('close-sim-btn');
+      const simModal = document.getElementById('sim-modal');
+      const simBackdrop = document.getElementById('sim-backdrop');
+      const applySimBtn = document.getElementById('apply-sim-btn');
+      const godModeCheckbox = document.getElementById('god-mode-checkbox');
+      const simSlider = document.getElementById('sim-slider');
+      const simClockDisplay = document.getElementById('sim-clock-display');
+      const simTimeBadge = document.getElementById('sim-time-badge');
+      const simMinusBtn = document.getElementById('sim-minus-btn');
+      const simPlusBtn = document.getElementById('sim-plus-btn');
+      const simDayButtons = document.querySelectorAll('.sim-day-btn');
+      const currentSimTimeLabel = document.getElementById('current-sim-time-label');
+
+      // Modals
+      const eventModal = document.getElementById('event-modal');
+      const eventModalBackdrop = document.getElementById('event-modal-backdrop');
+      const closeEventModalBtn = document.getElementById('close-event-modal-btn');
+      const closeEventModalCta = document.getElementById('close-event-modal-cta');
+      const modalEventTime = document.getElementById('modal-event-time');
+      const modalEventTitle = document.getElementById('modal-event-title');
+      const modalEventDesc = document.getElementById('modal-event-desc');
+      const modalEventNote = document.getElementById('modal-event-note');
+      const modalEventImageContainer = document.getElementById('modal-event-image-container');
+      const modalEventImage = document.getElementById('modal-event-image');
+
+      // Oracle
+      const oracleChatFeed = document.getElementById('oracle-chat-feed');
+      const oracleInputForm = document.getElementById('oracle-input-form');
+      const oracleTextInput = document.getElementById('oracle-text-input');
+      const oracleChips = document.querySelectorAll('.oracle-chip');
+
+      // 6. RENDER TIMELINE
+      function isEventUnlocked(event, dayKey) {
+        if (state.godMode) return true;
+        if (event.isSecret === false) return true;
+
+        // Day comparison
+        const dayOrder = { 'dia1': 1, 'dia2': 2, 'dia3': 3 };
+        const simOrder = { 'vie': 1, 'sab': 2, 'dom': 3 };
+
+        const currentDayIndex = simOrder[state.simDay];
+        const eventDayIndex = dayOrder[dayKey];
+
+        if (currentDayIndex > eventDayIndex) return true;
+        if (currentDayIndex < eventDayIndex) return false;
+
+        // Same day: check minute threshold
+        return state.simMinutes >= event.minutes;
+      }
+
+      function renderTimeline() {
+        const dayKey = state.activeDay;
+        const currentData = ITINERARY_DATA[dayKey];
+        if (!currentData) return;
+
+        timelineContainer.innerHTML = '';
+
+        // Day Header
+        const headerCard = document.createElement('div');
+        headerCard.className = 'bg-surface-container-low p-4 rounded-2xl border border-outline-variant/30 flex items-center justify-between shadow-sm';
+        headerCard.innerHTML = `
+          <div class="flex flex-col">
+            <span class="text-[10px] font-bold text-primary uppercase tracking-widest">${currentData.dayTitle}</span>
+            <span class="font-serif font-bold text-sm text-on-surface">${currentData.daySubtitle}</span>
+          </div>
+          <div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary shadow-inner">
+            <span class="material-symbols-outlined text-[18px]">calendar_today</span>
+          </div>
+        `;
+        timelineContainer.appendChild(headerCard);
+
+        // Events list
+        currentData.events.forEach((ev, idx) => {
+          const unlocked = isEventUnlocked(ev, dayKey);
+
+          const card = document.createElement('article');
+          card.className = 'w-full rounded-2xl overflow-hidden transition-all duration-300 border border-outline-variant/30 shadow-warm-card';
+
+          if (unlocked) {
+            // UNLOCKED STATE
+            card.classList.add('bg-surface-container-lowest');
+            let imageHtml = '';
+            if (ev.image) {
+              imageHtml = `
+                <div class="relative w-full h-44 overflow-hidden">
+                  <img src="${ev.image}" alt="${ev.title}" class="w-full h-full object-cover"/>
+                  <div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/85 via-inverse-surface/20 to-transparent"></div>
+                  <div class="absolute bottom-3 left-4 right-4">
+                    <span class="text-[10px] font-bold text-secondary-fixed uppercase tracking-wider block">${ev.location}</span>
+                    <h3 class="font-serif font-bold text-lg text-white leading-snug drop-shadow-sm">${ev.title}</h3>
+                  </div>
+                </div>
+              `;
+            }
+
+            card.innerHTML = `
+              ${imageHtml}
+              <div class="p-4 flex flex-col gap-2.5 bg-surface-container-low">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-primary text-[16px]">schedule</span>
+                    <span class="text-xs font-bold text-primary">${ev.time}</span>
+                  </div>
+                  <span class="text-[10px] font-bold text-on-surface-variant bg-surface-container px-2.5 py-0.5 rounded-full">${ev.tag}</span>
+                </div>
+
+                ${!ev.image ? `
+                  <div class="flex flex-col">
+                    <span class="text-[11px] text-on-surface-variant">${ev.location}</span>
+                    <h3 class="font-serif font-bold text-base text-on-surface">${ev.title}</h3>
+                  </div>
+                ` : ''}
+
+                <p class="text-xs text-on-surface-variant leading-relaxed line-clamp-3">
+                  ${ev.desc}
+                </p>
+
+                ${ev.note ? `
+                  <div class="p-2.5 rounded-xl bg-surface-container-lowest border border-outline-variant/20 flex items-start gap-2">
+                    <span class="material-symbols-outlined text-primary text-[16px] flex-shrink-0 mt-0.5 fill">favorite</span>
+                    <p class="font-serif italic text-[11px] text-on-surface-variant leading-tight">${ev.note}</p>
+                  </div>
+                ` : ''}
+
+                <div class="flex items-center justify-between pt-1 border-t border-outline-variant/20">
+                  <span class="text-[10px] font-semibold text-tertiary flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[14px] fill">check_circle</span>
+                    Momento revelado
+                  </span>
+                  <button class="event-detail-btn text-xs font-bold text-primary hover:underline flex items-center gap-0.5" data-id="${ev.id}">
+                    <span>Ver detalles</span>
+                    <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+                  </button>
+                </div>
+              </div>
+            `;
+          } else {
+            // MYSTERY / LOCKED STATE
+            card.classList.add('bg-inverse-surface', 'text-inverse-on-surface');
+            card.innerHTML = `
+              <div class="p-4 flex flex-col gap-3 relative overflow-hidden">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-secondary-fixed text-[16px]">lock</span>
+                    <span class="text-xs font-bold text-secondary-fixed">${ev.time}</span>
+                  </div>
+                  <span class="text-[10px] font-bold text-outline-variant bg-surface-container-lowest/10 px-2 py-0.5 rounded-full uppercase tracking-wider">
+                    Sorpresa Bloqueada
+                  </span>
+                </div>
+
+                <div class="flex flex-col">
+                  <span class="text-[10px] font-semibold text-secondary-fixed/80 uppercase tracking-widest">${ev.mood}</span>
+                  <h3 class="font-serif font-bold text-base text-inverse-on-surface tracking-tight mt-0.5">
+                    Pista Secreta
+                  </h3>
+                </div>
+
+                <div class="p-3 rounded-xl bg-surface-container-lowest/10 border border-secondary-fixed/20">
+                  <p class="font-serif italic text-xs text-secondary-fixed-dim leading-relaxed">
+                    "${ev.mysteryRiddle || 'Una sorpresa preparada con amor que se revelará cuando llegue su hora.'}"
+                  </p>
+                </div>
+
+                <div class="flex items-center justify-between pt-1 text-[11px]">
+                  <span class="text-outline-variant flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[14px]">lock_clock</span>
+                    Desbloqueo automático
+                  </span>
+                  <button class="riddle-guess-btn px-3 py-1 rounded-lg bg-primary-container text-on-primary-container text-xs font-bold transition-all active:scale-95 flex items-center gap-1" data-riddle="${ev.mysteryRiddle}">
+                    <span class="material-symbols-outlined text-[14px]">help</span>
+                    <span>Adivinar</span>
+                  </button>
+                </div>
+              </div>
+            `;
+          }
+
+          timelineContainer.appendChild(card);
+        });
+
+        // Attach event listener for detail buttons
+        document.querySelectorAll('.event-detail-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const evId = btn.getAttribute('data-id');
+            openEventModal(evId);
+          });
+        });
+
+        // Attach event listener for riddle guess buttons
+        document.querySelectorAll('.riddle-guess-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const riddle = btn.getAttribute('data-riddle');
+            alert(`Pista secreta: ${riddle}\n\n¡Guarda la sospecha hasta que llegue la hora!`);
+          });
+        });
+      }
+
+      function openEventModal(eventId) {
+        let foundEvent = null;
+        Object.values(ITINERARY_DATA).forEach(day => {
+          day.events.forEach(ev => {
+            if (ev.id === eventId) foundEvent = ev;
+          });
+        });
+
+        if (!foundEvent) return;
+
+        modalEventTime.innerText = `${foundEvent.time} • ${foundEvent.tag}`;
+        modalEventTitle.innerHTML = foundEvent.title;
+        modalEventDesc.innerHTML = foundEvent.desc;
+        modalEventNote.innerText = foundEvent.note || 'Preparado con todo el amor de Juan.';
+
+        if (foundEvent.image) {
+          modalEventImage.src = foundEvent.image;
+          modalEventImageContainer.classList.remove('hidden');
+        } else {
+          modalEventImageContainer.classList.add('hidden');
+        }
+
+        eventModal.classList.remove('hidden');
+      }
+
+      function closeEventModal() {
+        eventModal.classList.add('hidden');
+      }
+
+      // 7. TIME CONVERTER
+      function minutesToTime(minutes) {
+        const h = Math.floor(minutes / 60);
+        const m = minutes % 60;
+        const hh = h < 10 ? '0' + h : h;
+        const mm = m < 10 ? '0' + m : m;
+        return `${hh}:${mm}`;
+      }
+
+      function updateSimClockDisplay() {
+        const timeStr = minutesToTime(state.simMinutes);
+        simClockDisplay.innerText = timeStr;
+        simTimeBadge.innerText = `${timeStr} (${state.simDay.toUpperCase()})`;
+        currentSimTimeLabel.innerText = `${state.simDay.toUpperCase()} ${timeStr}`;
+      }
+
+      // 8. TAB NAVIGATION
+      tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const targetId = btn.getAttribute('data-target');
+          state.activeTab = targetId;
+
+          // Update active view
+          tabViews.forEach(view => {
+            if (view.id === targetId) {
+              view.classList.remove('hidden');
+            } else {
+              view.classList.add('hidden');
+            }
+          });
+
+          // Update nav button styles
+          tabButtons.forEach(b => {
+            if (b === btn) {
+              b.classList.remove('text-on-surface-variant', 'font-medium');
+              b.classList.add('text-primary', 'font-bold');
+              const icon = b.querySelector('.material-symbols-outlined');
+              if (icon) icon.classList.add('fill');
+            } else {
+              b.classList.remove('text-primary', 'font-bold');
+              b.classList.add('text-on-surface-variant', 'font-medium');
+              const icon = b.querySelector('.material-symbols-outlined');
+              if (icon) icon.classList.remove('fill');
+            }
+          });
+
+          if (targetId === 'view-itinerario') {
+            renderTimeline();
+          }
+        });
+      });
+
+      // Day tab buttons in itinerary
+      dayTabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const day = btn.getAttribute('data-day');
+          state.activeDay = day;
+
+          dayTabButtons.forEach(b => {
+            if (b === btn) {
+              b.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+              b.classList.remove('text-on-surface-variant');
+            } else {
+              b.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+              b.classList.add('text-on-surface-variant');
+            }
+          });
+
+          renderTimeline();
+        });
+      });
+
+      // 9. PARCHMENT FOLD / UNFOLD
+      let isFolded = false;
+      toggleParchmentBtn.addEventListener('click', () => {
+        isFolded = !isFolded;
+        if (isFolded) {
+          parchment.style.maxHeight = '140px';
+          parchment.style.opacity = '0.75';
+          toggleParchmentIcon.innerText = 'expand_more';
+          toggleParchmentText.innerText = 'Desplegar carta completa';
+        } else {
+          parchment.style.maxHeight = 'none';
+          parchment.style.opacity = '1';
+          toggleParchmentIcon.innerText = 'expand_less';
+          toggleParchmentText.innerText = 'Doblar carta / Escribirme';
+        }
+      });
+
+      // 10. REPLY MESSAGE PERSISTENCE
+      const savedReply = localStorage.getItem('mariajo_reply_message');
+      if (savedReply) {
+        replyTextarea.value = savedReply;
+        replyToast.classList.remove('hidden');
+      }
+
+      sendReplyBtn.addEventListener('click', () => {
+        const text = replyTextarea.value.trim();
+        if (text.length > 0) {
+          localStorage.setItem('mariajo_reply_message', text);
+          sendReplyBtn.disabled = true;
+          sendReplyBtn.innerHTML = `<span>Guardando...</span>`;
+
+          setTimeout(() => {
+            sendReplyBtn.disabled = false;
+            sendReplyBtn.innerHTML = `<span>Guardar mi respuesta</span> <span class="material-symbols-outlined text-[15px]">send</span>`;
+            replyToast.classList.remove('hidden');
+          }, 600);
+        } else {
+          replyTextarea.focus();
+        }
+      });
+
+      // 11. MAP CONTROLS
+      openMapBtn.addEventListener('click', () => {
+        mapModal.classList.remove('hidden');
+      });
+      closeMapBtn.addEventListener('click', () => {
+        mapModal.classList.add('hidden');
+      });
+
+      // Map pin clicks
+      const mapPins = document.querySelectorAll('.map-pin');
+      const mapPreviewCard = document.getElementById('map-preview-card');
+      const mapPreviewIcon = document.getElementById('map-preview-icon');
+      const mapPreviewTag = document.getElementById('map-preview-tag');
+      const mapPreviewTitle = document.getElementById('map-preview-title');
+      const mapPreviewTime = document.getElementById('map-preview-time');
+      const mapPreviewDesc = document.getElementById('map-preview-desc');
+
+      mapPins.forEach(pin => {
+        pin.addEventListener('click', () => {
+          const pinKey = pin.getAttribute('data-pin');
+          const data = MAP_POINTS[pinKey];
+          if (data) {
+            mapPreviewTag.innerText = data.tag;
+            mapPreviewTitle.innerText = data.title;
+            mapPreviewTime.innerText = data.time;
+            mapPreviewDesc.innerHTML = data.desc;
+            mapPreviewIcon.innerHTML = `<span class="material-symbols-outlined text-[18px]">${data.icon}</span>`;
+            mapPreviewCard.classList.add('ring-2', 'ring-primary');
+            setTimeout(() => mapPreviewCard.classList.remove('ring-2', 'ring-primary'), 600);
+          }
+        });
+      });
+
+      // 12. SIMULATOR CONTROLS
+      function openSimulator() {
+        simModal.classList.remove('hidden');
+      }
+      function closeSimulator() {
+        simModal.classList.add('hidden');
+        renderTimeline();
+      }
+
+      openSimBtn.addEventListener('click', openSimulator);
+      quickSimTrigger.addEventListener('click', openSimulator);
+      closeSimBtn.addEventListener('click', closeSimulator);
+      simBackdrop.addEventListener('click', closeSimulator);
+      applySimBtn.addEventListener('click', closeSimulator);
+
+      // Simulator day buttons
+      simDayButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const simDay = btn.getAttribute('data-sim-day');
+          state.simDay = simDay;
+
+          simDayButtons.forEach(b => {
+            if (b === btn) {
+              b.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+              b.classList.remove('bg-surface-container', 'text-on-surface');
+            } else {
+              b.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+              b.classList.add('bg-surface-container', 'text-on-surface');
+            }
+          });
+
+          updateSimClockDisplay();
+        });
+      });
+
+      // Slider
+      simSlider.addEventListener('input', (e) => {
+        state.simMinutes = parseInt(e.target.value, 10);
+        updateSimClockDisplay();
+      });
+
+      // Steppers
+      simMinusBtn.addEventListener('click', () => {
+        state.simMinutes = Math.max(360, state.simMinutes - 60);
+        simSlider.value = state.simMinutes;
+        updateSimClockDisplay();
+      });
+      simPlusBtn.addEventListener('click', () => {
+        state.simMinutes = Math.min(1410, state.simMinutes + 60);
+        simSlider.value = state.simMinutes;
+        updateSimClockDisplay();
+      });
+
+      // God Mode Toggle
+      godModeCheckbox.addEventListener('change', (e) => {
+        state.godMode = e.target.checked;
+        renderTimeline();
+      });
+
+      // 13. EVENT MODAL DISMISS
+      closeEventModalBtn.addEventListener('click', closeEventModal);
+      closeEventModalCta.addEventListener('click', closeEventModal);
+      eventModalBackdrop.addEventListener('click', closeEventModal);
+
+      // 14. ORACLE CHAT
+      function appendUserMessage(text) {
+        const msg = document.createElement('div');
+        msg.className = 'flex flex-col items-end max-w-[85%] self-end fade-enter';
+        msg.innerHTML = `
+          <div class="bg-primary text-on-primary px-3.5 py-2 rounded-2xl rounded-tr-sm shadow-sm text-xs leading-relaxed">
+            ${text}
+          </div>
+          <span class="text-[10px] text-outline mt-0.5 pr-1">Tú</span>
+        `;
+        oracleChatFeed.appendChild(msg);
+        oracleChatFeed.scrollTop = oracleChatFeed.scrollHeight;
+      }
+
+      function appendOracleResponse(text) {
+        const msg = document.createElement('div');
+        msg.className = 'flex items-start gap-2 max-w-[90%] self-start fade-enter';
+        msg.innerHTML = `
+          <div class="w-7 h-7 rounded-full overflow-hidden flex-shrink-0 bg-surface-container mt-1">
+            <img src="assets/sello_romantico.png" alt="Oraculo" class="w-full h-full object-cover"/>
+          </div>
+          <div class="bg-surface-container-low text-on-surface p-3.5 rounded-2xl rounded-tl-sm shadow-sm border border-outline-variant/30 flex flex-col gap-1">
+            <div class="flex items-center gap-1">
+              <span class="material-symbols-outlined text-[15px] text-primary">auto_awesome</span>
+              <span class="text-[10px] font-bold text-primary uppercase tracking-wider">Susurro del Guardián</span>
+            </div>
+            <p class="font-serif italic text-xs leading-relaxed text-on-surface">
+              "${text}"
+            </p>
+          </div>
+        `;
+        oracleChatFeed.appendChild(msg);
+        oracleChatFeed.scrollTop = oracleChatFeed.scrollHeight;
+      }
+
+      function handleOracleQuery(queryText) {
+        if (!queryText.trim()) return;
+        appendUserMessage(queryText);
+
+        const lower = queryText.toLowerCase();
+        let match = null;
+
+        for (const item of ORACLE_KNOWLEDGE) {
+          for (const trigger of item.triggers) {
+            if (lower.includes(trigger)) {
+              match = item.reply;
+              break;
+            }
+          }
+          if (match) break;
+        }
+
+        if (!match) {
+          match = 'Ese es uno de los secretos mejor custodiados por Juan. Solo te diré que involucra el río, el mar y mirarte a los ojos con la sonrisa más grande. ¡Pronto lo sabrás!';
+        }
+
+        setTimeout(() => {
+          appendOracleResponse(match);
+        }, 500);
+      }
+
+      oracleInputForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const val = oracleTextInput.value.trim();
+        if (val) {
+          handleOracleQuery(val);
+          oracleTextInput.value = '';
+        }
+      });
+
+      oracleChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          const q = chip.getAttribute('data-question');
+          handleOracleQuery(q);
+        });
+      });
+
+      // INITIAL RENDER
+      updateSimClockDisplay();
+      renderTimeline();
+
+    })();
+  </script>
+</body>
+</html>

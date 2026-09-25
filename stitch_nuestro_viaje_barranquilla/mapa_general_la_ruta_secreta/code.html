@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-container": "#f1ede7", "on-tertiary-container": "#fffbff", "on-tertiary-fixed-variant": "#871d2d", "on-secondary-fixed-variant": "#76321e", "on-primary-fixed-variant": "#802a05", "surface-container-low": "#f7f3ed", "secondary-fixed": "#ffdbd1", "inverse-on-surface": "#f4f0ea", "on-primary": "#ffffff", "outline": "#8a726a", "on-background": "#1c1c18", "on-error-container": "#93000a", "on-tertiary": "#ffffff", "secondary-fixed-dim": "#ffb59f", "on-primary-container": "#fffbff", "inverse-primary": "#ffb59c", "surface-dim": "#dddad4", "background": "#fdf9f3", "surface-tint": "#a0401c", "surface-container-lowest": "#ffffff", "primary-container": "#bd5630", "inverse-surface": "#31302d", "error": "#ba1a1a", "on-secondary-container": "#76331e", "surface-container-highest": "#e6e2dc", "tertiary-fixed-dim": "#ffb3b5", "surface-container-high": "#ebe8e2", "tertiary-container": "#c54b57", "on-tertiary-fixed": "#40000c", "surface-bright": "#fdf9f3", "on-surface": "#1c1c18", "tertiary": "#a43340", "on-error": "#ffffff", "tertiary-fixed": "#ffdada", "primary-fixed-dim": "#ffb59c", "primary-fixed": "#ffdbcf", "error-container": "#ffdad6", "secondary": "#934933", "on-secondary": "#ffffff", "surface-variant": "#e6e2dc", "on-primary-fixed": "#390c00", "primary": "#9d3e1a", "surface": "#fdf9f3", "secondary-container": "#fc9e82", "on-secondary-fixed": "#3a0a00", "outline-variant": "#ddc0b7", "on-surface-variant": "#56423c" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-xs": "0.25rem", "margin-desktop": "3rem", "space-xl": "2.25rem", "margin": "1.25rem", "gutter": "1rem", "space-lg": "1.5rem", "space-md": "1rem", "gutter-desktop": "2rem", "margin-tablet": "2rem", "gutter-tablet": "1.5rem", "space-sm": "0.5rem" }, fontFamily: { "body-lg": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "headline-lg": ["Playfair Display"], "label-lg": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "display-lg-mobile": ["Playfair Display"], "label-sm": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Playfair Display"], "body-md": ["Plus Jakarta Sans"], "headline-md": ["Playfair Display"], "display-lg": ["Playfair Display"], "headline-sm": ["Playfair Display"] }, fontSize: { "body-lg": ["17px", { lineHeight: "26px", fontWeight: "400" }], "body-sm": ["13px", { lineHeight: "18px", fontWeight: "400" }], "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "600" }], "label-lg": ["14px", { lineHeight: "18px", letterSpacing: "0.02em", fontWeight: "600" }], "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.04em", fontWeight: "600" }], "display-lg-mobile": ["34px", { lineHeight: "42px", letterSpacing: "-0.01em", fontWeight: "600" }], "label-sm": ["10px", { lineHeight: "14px", letterSpacing: "0.06em", fontWeight: "700" }], "headline-lg-mobile": ["26px", { lineHeight: "34px", fontWeight: "600" }], "body-md": ["15px", { lineHeight: "22px", fontWeight: "400" }], "headline-md": ["22px", { lineHeight: "30px", fontWeight: "600" }], "display-lg": ["44px", { lineHeight: "52px", letterSpacing: "-0.02em", fontWeight: "600" }], "headline-sm": ["19px", { lineHeight: "26px", fontWeight: "500" }] } } } }</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;min-height:100vh;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface text-on-surface antialiased flex flex-col min-h-screen selection:bg-secondary-fixed selection:text-on-secondary-fixed"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_4px_20px_-4px_rgba(135,29,45,0.06)]"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><button aria-label="Volver" class="w-11 h-11 rounded-full flex items-center justify-center bg-surface-container-low/80 hover:bg-surface-container text-on-surface transition-colors active:scale-95" onclick="history.back()"><span class="material-symbols-outlined text-[20px]">arrow_back</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface truncate">Mapa Secreto</h1></div><div class="flex items-center gap-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shadow-[0_2px_8px_rgba(157,62,26,0.15)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0UkOP7qrLFcCLkT6P1DbPj_MD2M6TsKThbaQCnL5vdMMuPojlyB_i6QMcCwPSASGlVXCiZ0WSCyQIaqgiZWDALbV71vrvuEd_zTh_KyE0Jr3ABLbDG2Hp3bNDJK8aER1kcSSrxi9STkkSFc-dpF5FwRTmdxuN70CteoBWiDqcmkIfR1eacK6p8yhx2XtL9ba67lTXlcpUqjvZvcLs1s-ZNp2mti5hKgb-iOVJs32ooZWRTQRBwK0i"/></div></div></header><main class="flex flex-col relative w-full pt-16 pb-safe bg-surface px-margin min-h-screen"><div class="flex flex-col w-full pb-8">
+<div class="flex items-center justify-between py-2 mb-3">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface">La Ruta Secreta — Barranquilla</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1.5 mt-0.5">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">favorite</span>
+        5 coordenadas enlazadas por el destino
+      </p>
+</div>
+<button aria-label="Cerrar vista mapa" class="w-10 h-10 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface flex items-center justify-center transition-transform active:scale-95 shadow-sm" onclick="history.back()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-surface-container-low shadow-xl select-none">
+<svg class="absolute inset-0 w-full h-full pointer-events-none" fill="none" preserveaspectratio="none" viewbox="0 0 400 500">
+<defs>
+<radialgradient cx="50%" cy="50%" id="sandGaze" r="50%">
+<stop offset="0%" stop-color="#fdf9f3" stop-opacity="0.9"></stop>
+<stop offset="100%" stop-color="#f1ede7" stop-opacity="0.95"></stop>
+</radialgradient>
+<lineargradient id="riverMagdalena" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#d9e6eb" stop-opacity="0.85"></stop>
+<stop offset="45%" stop-color="#bcd2db" stop-opacity="0.9"></stop>
+<stop offset="100%" stop-color="#a4c2cd" stop-opacity="0.9"></stop>
+</lineargradient>
+</defs>
+<rect fill="url(#sandGaze)" height="500" width="400"></rect>
+<path d="M 120 -10 C 130 50, 200 80, 210 140 C 220 200, 310 240, 320 340 C 330 420, 390 460, 410 510 L 420 -10 Z" fill="url(#riverMagdalena)"></path>
+<path d="M 0 40 C 50 60, 110 30, 150 10 L 170 -10 L 0 -10 Z" fill="#cfdee5" fill-opacity="0.6"></path>
+<path d="M 60 160 Q 140 180 200 240 T 320 310" opacity="0.6" stroke="#ddc0b7" stroke-dasharray="4 6" stroke-width="1.2"></path>
+<path d="M 30 330 Q 120 310 220 380" opacity="0.5" stroke="#ddc0b7" stroke-dasharray="3 5" stroke-width="1"></path>
+<path d="M 90 80 Q 70 180 110 280" opacity="0.4" stroke="#ddc0b7" stroke-dasharray="5 7" stroke-width="1.2"></path>
+<path d="M 230 300 C 210 250, 160 270, 140 230 C 120 180, 180 130, 215 90 C 220 60, 150 200, 105 285 C 90 320, 70 380, 60 410" fill="none" id="routeLine" opacity="0.85" stroke="#a43340" stroke-dasharray="4 6" stroke-linecap="round" stroke-width="2.5"></path>
+<circle cx="185" cy="265" fill="#bd5630" opacity="0.6" r="2.5"></circle>
+<circle cx="178" cy="210" fill="#bd5630" opacity="0.6" r="2.5"></circle>
+<circle cx="160" cy="185" fill="#a43340" opacity="0.5" r="2.5"></circle>
+<circle cx="165" cy="115" fill="#a43340" opacity="0.5" r="2.5"></circle>
+<circle cx="160" cy="190" fill="#871d2d" opacity="0.5" r="2.5"></circle>
+<circle cx="85" cy="340" fill="#871d2d" opacity="0.5" r="2.5"></circle>
+</svg>
+<div class="absolute top-4 right-4 z-20 flex flex-col items-center bg-surface-container-lowest/80 backdrop-blur-md p-2 rounded-full shadow-md">
+<svg class="w-8 h-8 text-secondary" fill="none" viewbox="0 0 32 32">
+<circle cx="16" cy="16" opacity="0.5" r="14" stroke="currentColor" stroke-dasharray="2 3" stroke-width="1"></circle>
+<path d="M16 3 L19 13 L16 16 L13 13 Z" fill="#9d3e1a"></path>
+<path d="M16 29 L19 19 L16 16 L13 19 Z" fill="#ddc0b7"></path>
+<path d="M29 16 L19 19 L16 16 L19 13 Z" fill="#ddc0b7"></path>
+<path d="M3 16 L13 19 L16 16 L13 13 Z" fill="#ddc0b7"></path>
+<circle cx="16" cy="16" fill="#1c1c18" r="1.5"></circle>
+</svg>
+<span class="font-label-sm text-label-sm text-primary tracking-widest mt-0.5 font-bold">N</span>
+</div>
+<div class="absolute top-5 left-5 pointer-events-none opacity-40">
+<span class="font-headline-sm text-headline-sm italic text-on-surface-variant tracking-wider">Mar Caribe</span>
+</div>
+<div class="absolute bottom-20 right-6 pointer-events-none opacity-50 text-right">
+<span class="font-headline-sm text-headline-sm italic text-on-surface-variant block tracking-wider">Río Magdalena</span>
+<span class="font-label-sm text-label-sm text-outline tracking-widest uppercase">Corriente Dorada</span>
+</div>
+<button class="group absolute -translate-x-1/2 -translate-y-1/2 z-30 flex flex-col items-center cursor-pointer transition-all duration-300" id="marker-1" onclick="selectMarker(1)" style="left: 57.5%; top: 60%;">
+<span class="absolute -top-1 w-11 h-11 rounded-full bg-primary/20 animate-ping"></span>
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary shadow-lg flex items-center justify-center font-headline-sm text-headline-sm font-bold ring-4 ring-primary-fixed">
+        1
+      </div>
+<div class="mt-1 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm shadow-md whitespace-nowrap">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Gran Malecón</span>
+</div>
+</button>
+<button class="group absolute -translate-x-1/2 -translate-y-1/2 z-30 flex flex-col items-center cursor-pointer transition-all duration-300" id="marker-2" onclick="selectMarker(2)" style="left: 35%; top: 46%;">
+<div class="w-9 h-9 rounded-full bg-primary-container text-on-primary shadow-md flex items-center justify-center font-headline-sm text-headline-sm font-semibold">
+        2
+      </div>
+<div class="mt-1 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm shadow-sm whitespace-nowrap">
+<span class="font-label-sm text-label-sm text-on-surface">El Prado Secreto</span>
+</div>
+</button>
+<button class="group absolute -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center cursor-pointer transition-all duration-300" id="marker-3" onclick="selectMarker(3)" style="left: 54%; top: 18%;">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed/90 text-on-secondary-fixed shadow flex items-center justify-center font-label-md text-label-md">
+        3
+      </div>
+<div class="mt-1 px-2 py-0.5 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm whitespace-nowrap">
+<span class="font-label-sm text-label-sm text-outline">Bocas de Ceniza</span>
+</div>
+</button>
+<button class="group absolute -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center cursor-pointer transition-all duration-300" id="marker-4" onclick="selectMarker(4)" style="left: 26%; top: 57%;">
+<div class="w-8 h-8 rounded-full bg-inverse-surface/85 text-inverse-on-surface shadow-inner flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+</div>
+<div class="mt-1 px-2 py-0.5 rounded-full bg-inverse-surface/80 text-inverse-on-surface backdrop-blur-sm whitespace-nowrap">
+<span class="font-label-sm text-label-sm">Coordenada 4</span>
+</div>
+</button>
+<button class="group absolute -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center cursor-pointer transition-all duration-300" id="marker-5" onclick="selectMarker(5)" style="left: 15%; top: 82%;">
+<div class="w-8 h-8 rounded-full bg-inverse-surface/85 text-inverse-on-surface shadow-inner flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+</div>
+<div class="mt-1 px-2 py-0.5 rounded-full bg-inverse-surface/80 text-inverse-on-surface backdrop-blur-sm whitespace-nowrap">
+<span class="font-label-sm text-label-sm">Secreto Final</span>
+</div>
+</button>
+<div class="absolute bottom-3 left-3 bg-surface-container-lowest/85 backdrop-blur-md px-3 py-1.5 rounded-full shadow-sm flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Toque un hito para inspeccionar</span>
+</div>
+</div>
+<div class="mt-4 w-full bg-surface-container rounded-xl p-space-md shadow-xl transition-all duration-300 flex flex-col gap-3" id="previewCard">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-headline-sm text-headline-sm font-semibold shrink-0" id="cardBadge">
+          1
+        </div>
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider block" id="cardStatus">Coordenada Revelada</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold" id="cardTitle">Gran Malecón — Atardecer</h2>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md font-semibold" id="cardTime">
+        17:30
+      </span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-16 h-16 rounded-lg bg-surface-container-high shrink-0 overflow-hidden relative shadow-sm" id="cardImage">
+<img class="w-full h-full object-cover" data-alt="Golden hour over Magdalena River in Barranquilla Colombia, warm terracotta sunset reflecting off water, couple silhouette on modern riverside wooden boardwalk, romantic atmosphere" id="cardImgEl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPS5lVTVhEXFKsbQQEwwSpfc2Gt_32B6qw1YP6vVOKjlmDSssCNTYowEp7vNH8r1SR80HnEOBOJzz1rWQDQRvEiKNTvld1v80iNhZZet4isRF6LYhRNPEJmTjQlT0XquGdTGyxeHYXvHCQk1XbFRbFJRN1ZGwO0QLA2ZY8iWumhGBNHLkCL0egEBbSLDTT150tkS2z4o1s87BtugUl-mQsd6CJZTOM7CzyDlBqCrpIAnGvM0AihfKn"/>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2" id="cardDescription">
+        La brisa tibia del río y los tonos dorados del ocaso. Brindis inicial con cócteles tropicales donde el Magdalena se despide del día.
+      </p>
+</div>
+<div class="flex items-center gap-2 pt-1">
+<button class="flex-1 py-3 px-4 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 shadow-md active:scale-95 transition-transform" id="cardActionBtn">
+<span class="material-symbols-outlined text-[18px]">explore</span>
+<span>Ver en itinerario</span>
+</button>
+<button aria-label="Guardar memoria" class="w-12 h-12 rounded-xl bg-surface-container-highest text-on-surface flex items-center justify-center hover:bg-surface-dim transition-colors active:scale-95 shadow-sm">
+<span class="material-symbols-outlined text-[20px] text-tertiary">bookmark_border</span>
+</button>
+</div>
+</div>
+<div class="mt-4 flex items-center justify-between px-2">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Desbloqueado (2)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-fixed"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">En progreso (1)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-inverse-surface"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Oculto (2)</span>
+</div>
+</div>
+</div>
+<script>
+  const locationsData = {
+    1: {
+      index: "1",
+      title: "Gran Malecón — Atardecer",
+      status: "Coordenada Revelada",
+      statusColor: "text-primary",
+      badgeBg: "bg-primary text-on-primary",
+      time: "17:30",
+      description: "La brisa tibia del río y los tonos dorados del ocaso. Brindis inicial con cócteles de corozo donde el Magdalena se despide del día.",
+      btnText: "Ver en itinerario",
+      isLocked: false,
+      alt: "Golden hour over Magdalena River in Barranquilla Colombia, warm terracotta sunset reflecting off water, couple silhouette on modern riverside wooden boardwalk, romantic atmosphere"
+    },
+    2: {
+      index: "2",
+      title: "El Prado / Restaurante Secreto",
+      status: "Coordenada Revelada",
+      statusColor: "text-primary",
+      badgeBg: "bg-primary-container text-on-primary",
+      time: "20:00",
+      description: "Patio interior republicano iluminado por velas y buganvilias. Menú degustación con sabores caribeños de autor entre casonas históricas.",
+      btnText: "Ver en itinerario",
+      isLocked: false,
+      alt: "Colonial neoclassical courtyard in El Prado Barranquilla with candlelit tables, lush tropical palm trees, blooming bougainvillea flowers, intimate romantic dinner setting"
+    },
+    3: {
+      index: "3",
+      title: "Bocas de Ceniza — Abrazo del Mar",
+      status: "Acceso Parcial",
+      statusColor: "text-secondary",
+      badgeBg: "bg-secondary-fixed text-on-secondary-fixed",
+      time: "Día 2 • 10:30",
+      description: "Paseo en tren rústico sobre el tajamar entre el río Magdalena y el Mar Caribe. Coordenada reservada con pista sensorial por descubrir.",
+      btnText: "Ver pistas del hito",
+      isLocked: false,
+      alt: "Dramatic meeting of dark river water and turquoise Caribbean ocean at Bocas de Ceniza, rocky breakwater pier, soft natural tropical sunlight, editorial travel aesthetic"
+    },
+    4: {
+      index: "4",
+      title: "Barrio Abajo — Coordenada Misteriosa",
+      status: "Bloqueado por el Destino",
+      statusColor: "text-tertiary",
+      badgeBg: "bg-inverse-surface text-inverse-on-surface",
+      time: "Secreto",
+      description: "Un enclave lleno de cumbia, tambores y secretos artesanales. Se revelará automáticamente cuando se complete la segunda parada.",
+      btnText: "Descifrar enigma",
+      isLocked: true,
+      alt: "Colorful bohemian Caribbean street in Barrio Abajo Barranquilla at twilight, vibrant vintage facades, warm glowing street lamps, enigmatic and inviting mood"
+    },
+    5: {
+      index: "5",
+      title: "Muelle de Puerto Colombia — Secreto Final",
+      status: "El Gran Broche de Oro",
+      statusColor: "text-on-tertiary-fixed-variant",
+      badgeBg: "bg-inverse-surface text-inverse-on-surface",
+      time: "Última Noche",
+      description: "El histórico muelle sobre las aguas del Atlántico. Una promesa bajo las estrellas diseñada exclusivamente para los dos.",
+      btnText: "Bloqueado hasta el ocaso",
+      isLocked: true,
+      alt: "Historic Puerto Colombia wooden pier jutting into Caribbean sea at twilight, deep indigo sky, warm romantic lantern glow, subtle gentle waves"
+    }
+  };
+
+  function selectMarker(id) {
+    const data = locationsData[id];
+    if (!data) return;
+
+    for (let i = 1; i <= 5; i++) {
+      const pin = document.getElementById('marker-' + i);
+      if (pin) {
+        if (i === id) {
+          pin.classList.add('scale-110', 'z-40');
+        } else {
+          pin.classList.remove('scale-110', 'z-40');
+        }
+      }
+    }
+
+    const badge = document.getElementById('cardBadge');
+    badge.className = `w-8 h-8 rounded-full flex items-center justify-center font-headline-sm text-headline-sm font-semibold shrink-0 ${data.badgeBg}`;
+    badge.innerHTML = data.isLocked ? '<span class="material-symbols-outlined text-[18px]">lock</span>' : data.index;
+
+    const statusEl = document.getElementById('cardStatus');
+    statusEl.textContent = data.status;
+    statusEl.className = `font-label-sm text-label-sm uppercase tracking-wider block ${data.statusColor}`;
+
+    document.getElementById('cardTitle').textContent = data.title;
+    document.getElementById('cardTime').textContent = data.time;
+    document.getElementById('cardDescription').textContent = data.description;
+
+    const imgEl = document.getElementById('cardImgEl');
+    imgEl.setAttribute('data-alt', data.alt);
+
+    const btn = document.getElementById('cardActionBtn');
+    if (data.isLocked) {
+      btn.className = "flex-1 py-3 px-4 rounded-xl bg-surface-container-highest text-on-surface-variant font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 shadow-sm active:scale-95 transition-transform";
+      btn.innerHTML = `<span class="material-symbols-outlined text-[18px]">key</span><span>${data.btnText}</span>`;
+    } else {
+      btn.className = "flex-1 py-3 px-4 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 shadow-md active:scale-95 transition-transform";
+      btn.innerHTML = `<span class="material-symbols-outlined text-[18px]">explore</span><span>${data.btnText}</span>`;
+    }
+
+    const card = document.getElementById('previewCard');
+    card.classList.add('scale-[0.99]');
+    setTimeout(() => card.classList.remove('scale-[0.99]'), 150);
+  }
+</script></main></body></html>

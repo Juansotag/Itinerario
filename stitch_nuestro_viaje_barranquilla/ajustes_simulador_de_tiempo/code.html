@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-container": "#f1ede7", "on-tertiary-container": "#fffbff", "on-tertiary-fixed-variant": "#871d2d", "on-secondary-fixed-variant": "#76321e", "on-primary-fixed-variant": "#802a05", "surface-container-low": "#f7f3ed", "secondary-fixed": "#ffdbd1", "inverse-on-surface": "#f4f0ea", "on-primary": "#ffffff", "outline": "#8a726a", "on-background": "#1c1c18", "on-error-container": "#93000a", "on-tertiary": "#ffffff", "secondary-fixed-dim": "#ffb59f", "on-primary-container": "#fffbff", "inverse-primary": "#ffb59c", "surface-dim": "#dddad4", "background": "#fdf9f3", "surface-tint": "#a0401c", "surface-container-lowest": "#ffffff", "primary-container": "#bd5630", "inverse-surface": "#31302d", "error": "#ba1a1a", "on-secondary-container": "#76331e", "surface-container-highest": "#e6e2dc", "tertiary-fixed-dim": "#ffb3b5", "surface-container-high": "#ebe8e2", "tertiary-container": "#c54b57", "on-tertiary-fixed": "#40000c", "surface-bright": "#fdf9f3", "on-surface": "#1c1c18", "tertiary": "#a43340", "on-error": "#ffffff", "tertiary-fixed": "#ffdada", "primary-fixed-dim": "#ffb59c", "primary-fixed": "#ffdbcf", "error-container": "#ffdad6", "secondary": "#934933", "on-secondary": "#ffffff", "surface-variant": "#e6e2dc", "on-primary-fixed": "#390c00", "primary": "#9d3e1a", "surface": "#fdf9f3", "secondary-container": "#fc9e82", "on-secondary-fixed": "#3a0a00", "outline-variant": "#ddc0b7", "on-surface-variant": "#56423c" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-xs": "0.25rem", "margin-desktop": "3rem", "space-xl": "2.25rem", "margin": "1.25rem", "gutter": "1rem", "space-lg": "1.5rem", "space-md": "1rem", "gutter-desktop": "2rem", "margin-tablet": "2rem", "gutter-tablet": "1.5rem", "space-sm": "0.5rem" }, fontFamily: { "body-lg": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "headline-lg": ["Playfair Display"], "label-lg": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "display-lg-mobile": ["Playfair Display"], "label-sm": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Playfair Display"], "body-md": ["Plus Jakarta Sans"], "headline-md": ["Playfair Display"], "display-lg": ["Playfair Display"], "headline-sm": ["Playfair Display"] }, fontSize: { "body-lg": ["17px", { lineHeight: "26px", fontWeight: "400" }], "body-sm": ["13px", { lineHeight: "18px", fontWeight: "400" }], "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "600" }], "label-lg": ["14px", { lineHeight: "18px", letterSpacing: "0.02em", fontWeight: "600" }], "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.04em", fontWeight: "600" }], "display-lg-mobile": ["34px", { lineHeight: "42px", letterSpacing: "-0.01em", fontWeight: "600" }], "label-sm": ["10px", { lineHeight: "14px", letterSpacing: "0.06em", fontWeight: "700" }], "headline-lg-mobile": ["26px", { lineHeight: "34px", fontWeight: "600" }], "body-md": ["15px", { lineHeight: "22px", fontWeight: "400" }], "headline-md": ["22px", { lineHeight: "30px", fontWeight: "600" }], "display-lg": ["44px", { lineHeight: "52px", letterSpacing: "-0.02em", fontWeight: "600" }], "headline-sm": ["19px", { lineHeight: "26px", fontWeight: "500" }] } } } }</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;min-height:100vh;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface text-on-surface antialiased flex flex-col min-h-screen selection:bg-secondary-fixed selection:text-on-secondary-fixed"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_4px_20px_-4px_rgba(135,29,45,0.06)]"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><button aria-label="Volver" class="w-11 h-11 rounded-full flex items-center justify-center bg-surface-container-low/80 hover:bg-surface-container text-on-surface transition-colors active:scale-95" onclick="history.back()"><span class="material-symbols-outlined text-[20px]">arrow_back</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface truncate">Configuracion Viaje</h1></div><div class="flex items-center gap-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shadow-[0_2px_8px_rgba(157,62,26,0.15)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0UkOP7qrLFcCLkT6P1DbPj_MD2M6TsKThbaQCnL5vdMMuPojlyB_i6QMcCwPSASGlVXCiZ0WSCyQIaqgiZWDALbV71vrvuEd_zTh_KyE0Jr3ABLbDG2Hp3bNDJK8aER1kcSSrxi9STkkSFc-dpF5FwRTmdxuN70CteoBWiDqcmkIfR1eacK6p8yhx2XtL9ba67lTXlcpUqjvZvcLs1s-ZNp2mti5hKgb-iOVJs32ooZWRTQRBwK0i"/></div></div></header><main class="flex flex-col relative w-full pt-16 pb-safe bg-surface px-margin min-h-screen"><div class="flex flex-col w-full relative">
+<!-- Backdrop Context Mockup (Subtle background layer showing itinerary behind) -->
+<div aria-hidden="true" class="w-full flex flex-col gap-space-md opacity-40 select-none pointer-events-none pb-8">
+<div class="flex items-center justify-between px-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Viernes, 24 de Octubre</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">17:00 • Atardecer en Barranquilla</span>
+</div>
+<div class="w-full bg-surface-container rounded-3xl p-space-md shadow-sm">
+<div class="flex items-center gap-space-sm mb-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">flight_land</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Llegada al Gran Malecón</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Brisa cálida del Magdalena y bienvenida con coctel artesanal.</p>
+</div>
+<div class="w-full bg-inverse-surface text-inverse-on-surface rounded-3xl p-space-md shadow-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary-fixed text-[20px]">lock</span>
+<span class="font-headline-sm text-headline-sm text-inverse-on-surface">Cena Secreta Fluvial</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary-fixed">Bloqueado • 20:00</span>
+</div>
+</div>
+</div>
+<!-- Modal / Bottom Sheet Overlay Container -->
+<div class="fixed inset-0 z-50 flex flex-col justify-end bg-inverse-surface/60 backdrop-blur-md transition-opacity duration-300" id="sim-modal-overlay">
+<!-- Click Outside Dismiss Area -->
+<div class="flex-1 w-full" onclick="dismissSimulator()"></div>
+<!-- Bottom Sheet Content -->
+<div class="w-full max-w-lg mx-auto bg-surface-container-low rounded-t-[2.25rem] shadow-2xl overflow-hidden flex flex-col max-h-[795px] animate-in slide-in-from-bottom duration-300">
+<!-- Grabber Bar & Close Header -->
+<div class="pt-space-sm px-space-lg flex flex-col items-center relative">
+<div class="w-12 h-1.5 rounded-full bg-outline-variant/60 my-space-xs cursor-grab active:cursor-grabbing"></div>
+<button aria-label="Cerrar panel de pruebas" class="absolute right-space-md top-space-sm w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface active:scale-90 transition-transform" onclick="dismissSimulator()" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 16 16">
+<line x1="3" x2="13" y1="3" y2="13"></line>
+<line x1="13" x2="3" y1="3" y2="13"></line>
+</svg>
+</button>
+</div>
+<!-- Sheet Scrollable Area -->
+<div class="overflow-y-auto px-space-lg pt-space-xs pb-space-xl flex flex-col gap-space-md">
+<!-- Editorial Header -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">tune</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">Consola de Previsualización</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Simulador del Viaje</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Control de tiempo y estados para verificar la secuencia del itinerario romántico.</p>
+</div>
+<!-- Day Selector Pill Strip -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface">Día del itinerario</span>
+<div class="grid grid-cols-3 gap-space-xs" id="day-selector-group">
+<button class="day-pill active flex flex-col items-start p-space-sm rounded-xl transition-all text-left bg-primary text-on-primary shadow-sm" onclick="selectDay(this, 'vie')" type="button">
+<span class="font-label-sm text-label-sm opacity-90">Día 1</span>
+<span class="font-label-md text-label-md font-bold">Viernes</span>
+<span class="font-body-sm text-body-sm text-[11px] opacity-80 leading-tight">Llegada</span>
+</button>
+<button class="day-pill flex flex-col items-start p-space-sm rounded-xl transition-all text-left bg-surface-container text-on-surface hover:bg-surface-container-high" onclick="selectDay(this, 'sab')" type="button">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Día 2</span>
+<span class="font-label-md text-label-md font-bold">Sábado</span>
+<span class="font-body-sm text-body-sm text-[11px] text-on-surface-variant leading-tight">Aventura</span>
+</button>
+<button class="day-pill flex flex-col items-start p-space-sm rounded-xl transition-all text-left bg-surface-container text-on-surface hover:bg-surface-container-high" onclick="selectDay(this, 'dom')" type="button">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Día 3</span>
+<span class="font-label-md text-label-md font-bold">Domingo</span>
+<span class="font-body-sm text-body-sm text-[11px] text-on-surface-variant leading-tight">Despedida</span>
+</button>
+</div>
+</div>
+<!-- Simulated Clock Section -->
+<div class="bg-surface-container rounded-2xl p-space-md flex flex-col gap-space-sm shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface">Hora virtual simulada</span>
+<span class="font-label-sm text-label-sm text-primary bg-secondary-fixed px-2 py-0.5 rounded-full text-on-secondary-fixed" id="time-descriptor">Hora dorada</span>
+</div>
+<!-- Digital Clock Display & Stepper -->
+<div class="flex items-center justify-between bg-surface-container-lowest rounded-xl p-space-sm shadow-inner">
+<div class="flex items-center gap-space-sm pl-space-xs">
+<span class="material-symbols-outlined text-outline text-[22px]">schedule</span>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface tracking-tight leading-none" id="digital-clock">17:00</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-[11px]">Barranquilla (GMT-5)</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5">
+<button aria-label="Restar una hora" class="w-10 h-10 rounded-lg bg-surface-container-low hover:bg-surface-container flex items-center justify-center text-on-surface active:scale-95 transition-transform" onclick="adjustTime(-60)" type="button">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+<button aria-label="Sumar una hora" class="w-10 h-10 rounded-lg bg-surface-container-low hover:bg-surface-container flex items-center justify-center text-on-surface active:scale-95 transition-transform" onclick="adjustTime(60)" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+<!-- Time Slider for Continuous Scrubbing -->
+<div class="flex flex-col gap-1 pt-1">
+<input class="w-full accent-primary bg-surface-container-highest rounded-lg h-2 cursor-pointer outline-none" id="time-slider" max="1430" min="360" oninput="onSliderMove(this.value)" step="15" type="range" value="1020"/>
+<div class="flex justify-between font-label-sm text-label-sm text-outline px-0.5 text-[10px]">
+<span>06:00 Amanecer</span>
+<span>12:00 Mediodía</span>
+<span>18:00 Puesta</span>
+<span>23:45 Noche</span>
+</div>
+</div>
+</div>
+<!-- God Mode / Instant Reveal Toggle -->
+<div class="bg-surface-container rounded-2xl p-space-md flex items-center justify-between gap-space-md shadow-sm">
+<div class="flex flex-col flex-1 min-w-0 pr-space-xs">
+<div class="flex items-center gap-space-xs mb-0.5">
+<span class="material-symbols-outlined text-tertiary text-[18px]">auto_awesome</span>
+<span class="font-label-md text-label-md text-on-surface truncate">Modo Revelación Inmediata</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary font-semibold tracking-wider uppercase text-[10px]">Modo Dios / Solo para ti</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-[12px] leading-snug mt-1">Desbloquea y visualiza todas las tarjetas y notas sorpresa sin esperar el horario programado.</p>
+</div>
+<!-- Tactile Switch Toggle -->
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input class="sr-only peer" id="instant-reveal-toggle" onchange="toggleGodMode(this)" type="checkbox"/>
+<div class="w-12 h-7 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-primary shadow-inner"></div>
+</label>
+</div>
+<!-- Live Reactive Status Card -->
+<div class="bg-surface-container-high rounded-2xl p-space-md flex items-start gap-space-sm transition-all duration-300" id="simulation-hint-banner">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">lightbulb</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed" id="simulation-hint-text">
+            Si adelantas la hora a las <strong class="text-on-surface font-semibold">20:00</strong>, la tarjeta de la <span class="text-primary font-medium">Cena Secreta Fluvial</span> pasará de misterio a revelada en vivo.
+          </p>
+</div>
+<!-- Action CTA Buttons -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<!-- Primary CTA -->
+<button class="w-full bg-primary hover:bg-primary-container text-on-primary py-3.5 px-space-md rounded-2xl font-label-lg text-label-lg flex items-center justify-center gap-space-xs shadow-md active:scale-[0.99] transition-transform" onclick="saveSimulationTime()" type="button">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+<span>Guardar y actualizar tiempo simulado</span>
+</button>
+<!-- Reset CTA -->
+<button class="w-full bg-transparent hover:bg-surface-container text-secondary py-3 px-space-md rounded-2xl font-label-md text-label-md flex items-center justify-center gap-space-xs transition-colors" onclick="resetToRealTime()" type="button">
+<span class="material-symbols-outlined text-[18px]">history</span>
+<span>Restablecer a hora real de Colombia</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+    let currentMinutes = 1020; // 17:00 default
+    let isGodMode = false;
+
+    function formatTime(totalMinutes) {
+      const hours = Math.floor(totalMinutes / 60);
+      const minutes = totalMinutes % 60;
+      const hh = String(hours).padStart(2, '0');
+      const mm = String(minutes).padStart(2, '0');
+      return `${hh}:${mm}`;
+    }
+
+    function updateTimeDisplay(minutes) {
+      currentMinutes = Math.min(1439, Math.max(0, minutes));
+      const clockEl = document.getElementById('digital-clock');
+      const sliderEl = document.getElementById('time-slider');
+      const descEl = document.getElementById('time-descriptor');
+      const hintText = document.getElementById('simulation-hint-text');
+
+      if (clockEl) clockEl.innerText = formatTime(currentMinutes);
+      if (sliderEl) sliderEl.value = currentMinutes;
+
+      // Update qualitative atmospheric badge
+      if (currentMinutes < 360) {
+        descEl.innerText = 'Madrugada';
+      } else if (currentMinutes < 660) {
+        descEl.innerText = 'Brisa de mañana';
+      } else if (currentMinutes < 960) {
+        descEl.innerText = 'Sol Caribeño';
+      } else if (currentMinutes < 1140) {
+        descEl.innerText = 'Hora dorada';
+      } else if (currentMinutes < 1320) {
+        descEl.innerText = 'Velada nocturna';
+      } else {
+        descEl.innerText = 'Medianoche íntima';
+      }
+
+      // Update contextual feedback text
+      if (hintText && !isGodMode) {
+        if (currentMinutes >= 1200) {
+          hintText.innerHTML = 'Con las <strong class="text-on-surface font-semibold">' + formatTime(currentMinutes) + '</strong> seleccionadas, la <span class="text-primary font-medium">Cena Secreta</span> y el brindis ya se encuentran visibles.';
+        } else {
+          hintText.innerHTML = 'Si adelantas la hora a las <strong class="text-on-surface font-semibold">20:00</strong>, la tarjeta de la <span class="text-primary font-medium">Cena Secreta Fluvial</span> pasará de misterio a revelada en vivo.';
+        }
+      }
+    }
+
+    function adjustTime(deltaMinutes) {
+      updateTimeDisplay(currentMinutes + deltaMinutes);
+    }
+
+    function onSliderMove(val) {
+      updateTimeDisplay(parseInt(val, 10));
+    }
+
+    function selectDay(selectedBtn, dayCode) {
+      const pills = document.querySelectorAll('.day-pill');
+      pills.forEach(btn => {
+        btn.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+        btn.classList.add('bg-surface-container', 'text-on-surface');
+        const labels = btn.querySelectorAll('span');
+        if (labels[0]) labels[0].className = 'font-label-sm text-label-sm text-on-surface-variant';
+        if (labels[2]) labels[2].className = 'font-body-sm text-body-sm text-[11px] text-on-surface-variant leading-tight';
+      });
+
+      selectedBtn.classList.remove('bg-surface-container', 'text-on-surface');
+      selectedBtn.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+      const activeLabels = selectedBtn.querySelectorAll('span');
+      if (activeLabels[0]) activeLabels[0].className = 'font-label-sm text-label-sm opacity-90';
+      if (activeLabels[2]) activeLabels[2].className = 'font-body-sm text-body-sm text-[11px] opacity-80 leading-tight';
+    }
+
+    function toggleGodMode(checkbox) {
+      isGodMode = checkbox.checked;
+      const hintText = document.getElementById('simulation-hint-text');
+      const banner = document.getElementById('simulation-hint-banner');
+      
+      if (isGodMode) {
+        banner.classList.add('bg-secondary-fixed');
+        hintText.innerHTML = '<strong class="text-on-secondary-fixed font-semibold">Modo Revelación activo:</strong> Toda sorpresa, ubicación secreta y notas de amor están visibles sin importar la hora.';
+      } else {
+        banner.classList.remove('bg-secondary-fixed');
+        updateTimeDisplay(currentMinutes);
+      }
+    }
+
+    function dismissSimulator() {
+      const overlay = document.getElementById('sim-modal-overlay');
+      if (overlay) {
+        overlay.classList.add('opacity-0', 'pointer-events-none');
+        setTimeout(() => {
+          overlay.style.display = 'none';
+        }, 300);
+      }
+    }
+
+    function saveSimulationTime() {
+      const btn = event.currentTarget;
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<span class="material-symbols-outlined text-[20px] animate-spin">sync</span><span>Sincronizando itinerario...</span>';
+      setTimeout(() => {
+        dismissSimulator();
+        btn.innerHTML = originalText;
+      }, 450);
+    }
+
+    function resetToRealTime() {
+      // Colombian timezone UTC-5 simulation approximation
+      const now = new Date();
+      const colMinutes = (now.getUTCHours() - 5 + 24) % 24 * 60 + now.getUTCMinutes();
+      updateTimeDisplay(colMinutes);
+      
+      const toggle = document.getElementById('instant-reveal-toggle');
+      if (toggle && toggle.checked) {
+        toggle.checked = false;
+        toggleGodMode(toggle);
+      }
+
+      // Default back to Day 1
+      const firstDayBtn = document.querySelector('.day-pill');
+      if (firstDayBtn) selectDay(firstDayBtn, 'vie');
+    }
+  </script>
+</div></main></body></html>
